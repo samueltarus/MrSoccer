@@ -37,33 +37,39 @@
     </div>
 </nav>
 
-<table class="table table-success table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Team Id</th>
-        <th scope="col">Team Coach</th>
-        <th scope="col">Team Location</th>
-        <th scope="col">Team League</th>
-        <th scope="col">Team Name</th>
-        <th scope="col">Team Level</th>
+<form action="/MrSoccer/addTeam" method="post">
+    <div class="mb-3">
+        <label for="id" class="form-label">Team Id</label>
+        <input type="number" class="form-control" id="id" name="id">
+    </div>
 
-    </tr>
-    </thead>
+    <div class="mb-3">
+        <label for="coach" class="form-label">Team Coach</label>
+        <input type="text" class="form-control" id="coach" name="coach">
+    </div>
 
-    <tbody>
-    <c:forEach items="${teams}" var="team">
-        <tr>
-            <td>${team.id}</td>
-            <th >${team.coach}</th>
-            <td>${team.location}</td>
-            <td>${team.league}</td>
-            <td>${team.name}</td>
-            <td>${team.level}</td>
-        </tr>
-    </c:forEach>
+    <div class="mb-3">
+        <label for="location" class="form-label">Team Location</label>
+        <input type="text" class="form-control" id="location" name="location">
+    </div>
 
-    </tbody>
-</table>
+    <div class="mb-3">
+        <label for="name" class="form-label">Team Name</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+
+    <div class="mb-3">
+        <label for="league" class="form-label">Team League</label>
+        <input type="text" class="form-control" id="league" name="league">
+    </div>
+
+    <div class="mb-3">
+        <label for="level" class="form-label">Team Level</label>
+        <input type="text" class="form-control" id="level" name="level">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 
 
