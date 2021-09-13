@@ -16,7 +16,7 @@ public class TeamLogic extends DatabaseUtil implements TeamInterface {
     }
 
     public void editTeam(Team team) {
-        if (team == null || team.getId() == 0 )
+        if (team == null || team.getId() == 0)
             return;
         executeUpdate(team.createUpdateSql());
     }
@@ -26,7 +26,7 @@ public class TeamLogic extends DatabaseUtil implements TeamInterface {
         try {
             ResultSet result = executeQuery("SELECT * FROM teams");
             while (result.next()) {
-                Team team = new Team(); //id,coach,location,league,name,level
+                Team team = new Team();
                 team.setId(result.getInt(1));
                 team.setCoach(result.getString(2));
                 team.setLocation(result.getString(3));
@@ -35,11 +35,17 @@ public class TeamLogic extends DatabaseUtil implements TeamInterface {
                 team.setLevel(Level.valueOf(result.getString(6)));
                 teams.add(team);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return teams;
+    }
+
+    public void searchTeam(Team team) {
+        /*Perform search query from db using either teamId, teamName*/
+
+        String query = "SELECT * FROM teams WHERE id=" + team.getId();
     }
 
     public void deleteTeam(int id) {
