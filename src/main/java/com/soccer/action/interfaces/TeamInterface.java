@@ -1,6 +1,6 @@
 package com.soccer.action.interfaces;
 
-import models.Team;
+import com.soccer.action.models.Team;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package enums;
+package com.soccer.action.enums;
 
 public enum League {
     PREMIER("England Premier League"),

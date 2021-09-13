@@ -1,16 +1,11 @@
 package com.soccer.action.action;
 
-import enums.Position;
-import models.Player;
-import models.Team;
-import utils.SoccerData;
+import com.soccer.action.models.Player;
+import com.soccer.action.utils.SoccerData;
 
 import javax.servlet.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class PlayerAction implements Servlet {
     @Override

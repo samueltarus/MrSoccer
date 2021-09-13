@@ -1,6 +1,6 @@
-package models;
+package com.soccer.action.models;
 
-import enums.Position;
+import com.soccer.action.enums.Position;
 
 public class Player {
 

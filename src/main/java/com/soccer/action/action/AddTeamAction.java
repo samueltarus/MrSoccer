@@ -1,9 +1,9 @@
 package com.soccer.action.action;
 
 import com.soccer.action.logic.TeamLogic;
-import enums.League;
-import enums.Level;
-import models.Team;
+import com.soccer.action.enums.League;
+import com.soccer.action.enums.Level;
+import com.soccer.action.models.Team;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

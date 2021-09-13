@@ -1,4 +1,4 @@
-package models;
+package com.soccer.action.models;
 
 public class ModelTest {
     String name;

@@ -1,10 +1,10 @@
-package utils;
+package com.soccer.action.utils;
 
-import enums.League;
-import enums.Level;
-import enums.Position;
-import models.Player;
-import models.Team;
+import com.soccer.action.enums.League;
+import com.soccer.action.enums.Level;
+import com.soccer.action.enums.Position;
+import com.soccer.action.models.Player;
+import com.soccer.action.models.Team;
 
 import java.util.ArrayList;
 import java.util.List;

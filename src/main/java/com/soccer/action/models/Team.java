@@ -1,7 +1,7 @@
-package models;
+package com.soccer.action.models;
 
-import enums.League;
-import enums.Level;
+import com.soccer.action.enums.League;
+import com.soccer.action.enums.Level;
 
 import java.util.Random;
 

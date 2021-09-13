@@ -1,9 +1,7 @@
 package com.soccer.action.action;
 
 import com.soccer.action.logic.TeamLogic;
-import enums.League;
-import enums.Level;
-import models.Team;
+import com.soccer.action.models.Team;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 public class HomeAction extends HttpServlet {

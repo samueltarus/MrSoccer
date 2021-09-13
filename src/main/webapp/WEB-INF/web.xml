@@ -49,4 +49,9 @@
         <url-pattern>/player</url-pattern>
     </servlet-mapping>
 
+    <!-- Listeners -->
+    <listener>
+        <listener-class>com.soccer.action.utils.AppBootListener</listener-class>
+    </listener>
+
 </web-app>
