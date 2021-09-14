@@ -4,7 +4,7 @@ import com.soccer.action.interfaces.TeamInterface;
 import com.soccer.action.enums.League;
 import com.soccer.action.enums.Level;
 import com.soccer.action.models.Team;
-import com.soccer.action.utils.DatabaseUtil;
+import com.soccer.action.db.utils.DatabaseUtil;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;

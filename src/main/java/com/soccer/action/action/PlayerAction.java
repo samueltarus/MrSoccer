@@ -1,12 +1,21 @@
 package com.soccer.action.action;
 
 import com.soccer.action.models.Player;
-import com.soccer.action.utils.SoccerData;
+import com.soccer.action.db.utils.SoccerData;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(
+        name = "PlayerAction",
+        urlPatterns = "/player",
+        initParams = {
+                @WebInitParam(name = "Page Name", value = "MrSoccer")
+        }
+)
 public class PlayerAction implements Servlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {

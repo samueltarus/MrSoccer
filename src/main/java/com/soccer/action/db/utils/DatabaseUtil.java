@@ -1,4 +1,4 @@
-package com.soccer.action.utils;
+package com.soccer.action.db.utils;
 
 import java.sql.*;
 
@@ -6,9 +6,7 @@ public abstract class DatabaseUtil {
 
     private Connection getDbConnection() throws SQLException
     {
-        return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/mr_footer", "root", "12345"
-        );
+        return DbUtil.getInstance().getConnection();
     }
 
     public ResultSet executeQuery(String sql)

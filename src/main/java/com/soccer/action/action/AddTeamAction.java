@@ -6,9 +6,18 @@ import com.soccer.action.enums.Level;
 import com.soccer.action.models.Team;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 
+@WebServlet(
+        name = "AddTeamAction",
+        urlPatterns = "/addTeam",
+        initParams = {
+                @WebInitParam(name = "Page Name", value = "MrSoccer")
+        }
+)
 public class AddTeamAction extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

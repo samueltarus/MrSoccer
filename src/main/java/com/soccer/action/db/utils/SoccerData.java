@@ -1,4 +1,4 @@
-package com.soccer.action.utils;
+package com.soccer.action.db.utils;
 
 import com.soccer.action.enums.League;
 import com.soccer.action.enums.Level;

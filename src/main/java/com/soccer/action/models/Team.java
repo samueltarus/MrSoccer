@@ -75,16 +75,11 @@ public class Team {
 
     public String createUpdateSql() {
 
-        Random random = new Random();
-
         String sql;
 
         if (getId() != 0) {
             sql = "insert into teams(id,coach,location,league,name,level) values(";
 
-            // ''Victor''Mombasa Rd''PREMIER''Vickie FC''TOP')' at line 1
-
-           // sql += random.nextInt(1000) + ",";
             sql += getId() + ",";
             sql += "'" + getCoach() + "',";
             sql += "'" + getLocation() + "',";
