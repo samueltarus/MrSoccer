@@ -20,51 +20,16 @@
 <body>
 <div style="background-image: url('background.jpg');">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mr Soccer</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/MrSoccer/home">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/MrSoccer/addTeam">Add Team</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/MrSoccer/searchTeam">Clubs</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/MrSoccer/deleteTeam">Players</a>
-                    </li>
-
-                    <ul class="navbar-nav-end">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/MrSoccer/login">Login</a>
-                        </li>
-                    </ul>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
 
     <table class="table table-success table-striped">
         <thead>
         <tr>
-            <th scope="col">Team Id</th>
-            <th scope="col">Team Coach</th>
-            <th scope="col">Team Location</th>
-            <th scope="col">Team League</th>
-            <th scope="col">Team Name</th>
-            <th scope="col">Team Level</th>
+            <th scope="col">Club Id</th>
+            <th scope="col">Club Coach</th>
+            <th scope="col">Club Location</th>
+            <th scope="col">Club League</th>
+            <th scope="col">Club Name</th>
+            <th scope="col">Club Level</th>
 
         </tr>
         </thead>

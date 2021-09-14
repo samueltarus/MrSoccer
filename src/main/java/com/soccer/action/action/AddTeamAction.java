@@ -1,9 +1,9 @@
 package com.soccer.action.action;
 
-import com.soccer.action.logic.TeamLogic;
+import com.soccer.action.logic.ClubLogic;
 import com.soccer.action.enums.League;
 import com.soccer.action.enums.Level;
-import com.soccer.action.models.Team;
+import com.soccer.action.models.Club;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebInitParam;
@@ -26,9 +26,9 @@ public class AddTeamAction extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        TeamLogic logic = new TeamLogic();
+        ClubLogic logic = new ClubLogic();
 
-        Team team = new Team(
+        Club club = new Club(
                 Integer.parseInt(request.getParameter("id")),
                 request.getParameter("coach"),
                 request.getParameter("location"),
@@ -36,7 +36,7 @@ public class AddTeamAction extends HttpServlet {
                 request.getParameter("name"),
                 Level.valueOf(request.getParameter("level")));
 
-        logic.addTeam(team);
+        logic.addTeam(club);
 
         response.sendRedirect("/MrSoccer/home");
     }

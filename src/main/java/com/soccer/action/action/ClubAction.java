@@ -3,7 +3,6 @@ package com.soccer.action.action;
 import com.soccer.action.logic.ClubLogic;
 import com.soccer.action.models.Club;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -14,39 +13,27 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(
-        name = "HomeAction",
-        urlPatterns = "/home",
+        name = "ClubAction",
+        urlPatterns = "/clubs",
         initParams = {
                 @WebInitParam(name = "Page Name", value = "MrSoccer")
         }
 )
-public class HomeAction extends HttpServlet {
-
+public class ClubAction extends HttpServlet {
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
-        System.out.println("Team Servlet initialized...");
-    }
-
-    @Override
-    public ServletConfig getServletConfig() {
-        return null;
-    }
-
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ClubLogic logic = new ClubLogic();
-        System.out.println("==============");
         try {
             List<Club> clubs = logic.listTeam();
             request.setAttribute("clubs", clubs);
-            request.getRequestDispatcher("/main.jsp").forward(request, response);
+            request.getRequestDispatcher("/clubs.jsp").forward(request, response);
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void destroy() {
-        System.out.println("Killing servlet....");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
     }
 }

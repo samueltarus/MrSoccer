@@ -1,5 +1,7 @@
 package com.soccer.action.action;
 
+import com.soccer.action.logic.ClubLogic;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -17,12 +19,12 @@ import java.io.IOException;
 )
 public class SearchTeamAction extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/searchTeam.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        ClubLogic logic = new ClubLogic();
     }
 }

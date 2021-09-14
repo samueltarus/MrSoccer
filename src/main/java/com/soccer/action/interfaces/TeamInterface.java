@@ -1,17 +1,17 @@
 package com.soccer.action.interfaces;
 
-import com.soccer.action.models.Team;
+import com.soccer.action.models.Club;
 
 import java.util.List;
 
 public interface TeamInterface {
-    void addTeam(Team team);
+    void addTeam(Club club);
 
-    void editTeam(Team team);
+    void editTeam(Club club);
 
-    List<Team> listTeam() throws Exception;
+    List<Club> listTeam() throws Exception;
 
-    void searchTeam(Team team);
+    void searchTeam(Club club);
 
-    void deleteTeam(Team team);
+    void deleteTeam(Club club);
 }

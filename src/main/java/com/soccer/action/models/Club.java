@@ -5,7 +5,7 @@ import com.soccer.action.enums.Level;
 
 import java.util.Random;
 
-public class Team {
+public class Club {
     private int id;
     private String coach;
     private String location;
@@ -13,7 +13,7 @@ public class Team {
     private String name;
     private Level level;
 
-    public Team(int id, String coach, String location, League league, String name, Level level) {
+    public Club(int id, String coach, String location, League league, String name, Level level) {
         this.id = id;
         this.coach = coach;
         this.location = location;
@@ -22,7 +22,7 @@ public class Team {
         this.level = level;
     }
 
-    public Team() {
+    public Club() {
     }
 
     public int getId() {
@@ -91,8 +91,6 @@ public class Team {
             sql = "update teams set ";
 
             String setCol = "";
-
-            //id,coach,location,league,name,level
 
             if (getCoach() != null && !getCoach().trim().equals(""))
                 setCol += "coach='" + getCoach();

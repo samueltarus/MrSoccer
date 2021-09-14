@@ -52,7 +52,8 @@
     </style>
 </head>
 <body>
-<div class="row">
+
+<div class="row" style="background-image: url('bg.jpg');">
     <form action="/MrSoccer/login" method="post">
 
         <h3>Login</h3>

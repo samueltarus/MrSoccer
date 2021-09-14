@@ -13,16 +13,51 @@
     <title>Title</title>
     <style>
         form {
-            margin-top: 5%;
+            /*margin-top: 5%;*/
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            max-width: 420px;
+            margin: 0 auto 100px;
+            padding: 25px;
+
         }
+
+        body {
+            margin: 50px 0px;
+            padding: 0px;
+            text-align: center;
+            align: center;
+        }
+
+        label, input {
+            display: block;
+            width: 300px;
+            float: left;
+            margin-bottom: 10px;
+        }
+
+        label {
+            text-align: right;
+            width: 150px;
+            padding-right: 20px;
+        }
+
+        br {
+            clear: left;
+        }
+
     </style>
 </head>
 <body>
 
-
-<h3> Add Team details in the form below </h3>
-
+<div class="row" style="background-image: url('background.jpg');">
 <form action="/MrSoccer/addTeam" method="post">
+
+    <h3>Add Club details</h3>
+    <hr>
+
     <div class="mb-3">
         <label for="id" class="form-label">Team Id</label>
         <input type="number" class="form-control" id="id" name="id">
@@ -55,6 +90,8 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+</div>
 
 
 <!-- Optional JavaScript -->
