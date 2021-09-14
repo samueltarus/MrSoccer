@@ -44,11 +44,10 @@ public class TeamLogic extends DatabaseUtil implements TeamInterface {
 
     public void searchTeam(Team team) {
         /*Perform search query from db using either teamId, teamName*/
-
-        String query = "SELECT * FROM teams WHERE id=" + team.getId();
+        executeQuery("SELECT * FROM teams WHERE id=" + team.getId());
     }
 
-    public void deleteTeam(int id) {
-        executeUpdate("DELETE FROM teams WHERE id=" + id);
+    public void deleteTeam(Team team) {
+        executeUpdate("DELETE FROM teams WHERE id=" + team.getId());
     }
 }

@@ -11,5 +11,7 @@ public interface TeamInterface {
 
     List<Team> listTeam() throws Exception;
 
-    void deleteTeam(int id);
+    void searchTeam(Team team);
+
+    void deleteTeam(Team team);
 }
