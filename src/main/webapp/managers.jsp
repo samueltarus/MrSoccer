@@ -51,6 +51,7 @@
     <h1 class="logo"><a href="/MrSoccer/home">MrSoccer</a></h1>
     <ul class="nav">
       <li><a href="/MrSoccer/addManager">Add Manager</a></li>
+      <li><a href="/MrSoccer/standings">Standings</a></li>
       <li><a href="/MrSoccer/clubs">Clubs</a></li>
       <li><a href="/MrSoccer/players">Players</a></li>
       <li><a href="/MrSoccer/signout">Sign Out</a></li>
