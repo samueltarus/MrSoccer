@@ -53,15 +53,21 @@
 <body>
 
 <div class="row" style="background-image: url('background.jpg');">
+
 <form action="/MrSoccer/addTeam" method="post">
 
     <h3>Add Club details</h3>
     <hr>
 
-    <div class="mb-3">
-        <label for="id" class="form-label">Team Id</label>
-        <input type="number" class="form-control" id="id" name="id">
+    <div class="row">
+        <div class="mb-3">
+            <label for="id" class="form-label">Team Id</label>
+        </div>
+        <div class="mb-3">
+            <input type="number" class="form-control" id="id" name="id">
+        </div>
     </div>
+
 
     <div class="mb-3">
         <label for="coach" class="form-label">Team Coach</label>

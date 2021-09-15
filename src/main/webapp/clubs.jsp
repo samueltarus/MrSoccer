@@ -57,37 +57,47 @@
         </ul>
     </div>
 </nav>
-<div style="background-image: url('background.jpg');">
 
+<hr>
 
-    <table class="table table-success table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Club Id</th>
-            <th scope="col">Club Coach</th>
-            <th scope="col">Club Location</th>
-            <th scope="col">Club League</th>
-            <th scope="col">Club Name</th>
-            <th scope="col">Club Level</th>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card-body">
+                <p>Welcome home</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <table class="table table-success table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Club Coach</th>
+                        <th scope="col">Club League</th>
+                        <th scope="col">Club Name</th>
 
-        </tr>
-        </thead>
+                    </tr>
+                    </thead>
 
-        <tbody>
-        <c:forEach items="${clubs}" var="club">
-            <tr>
-                <td>${club.id}</td>
-                <th>${club.coach}</th>
-                <td>${club.location}</td>
-                <td>${club.league}</td>
-                <td>${club.name}</td>
-                <td>${club.level}</td>
-            </tr>
-        </c:forEach>
+                    <tbody>
+                    <c:forEach items="${clubs}" var="club">
+                        <tr>
+                            <th>${club.coach}</th>
+                            <td>${club.league}</td>
+                            <td>${club.name}</td>
+                        </tr>
+                    </c:forEach>
 
-        </tbody>
-    </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
+        <div class="col-md-3">
+            <h3>Hello</h3>
+        </div>
+    </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -100,7 +110,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-</div>
 
 </body>
 </html>
