@@ -1,11 +1,7 @@
 package com.soccer.action.logic;
 
 import com.soccer.action.db.utils.DatabaseUtil;
-import com.soccer.action.enums.League;
-import com.soccer.action.enums.Level;
-import com.soccer.action.enums.Position;
 import com.soccer.action.interfaces.PlayerI;
-import com.soccer.action.models.Club;
 import com.soccer.action.models.Player;
 
 import java.sql.ResultSet;
@@ -22,7 +18,7 @@ public class PlayerLogic extends DatabaseUtil implements PlayerI {
                 Player player = new Player();
                 player.setId(result.getInt(1));
                 player.setName(result.getString(2));
-                player.setPosition(Position.valueOf(result.getString(3)));
+                player.setPosition(result.getString(3));
                 player.setCountry(result.getString(4));
                 players.add(player);
             }
@@ -31,5 +27,9 @@ public class PlayerLogic extends DatabaseUtil implements PlayerI {
         }
 
         return players;
+    }
+
+    public void addPlayer(Player player) {
+        executeUpdate(player.createUpdateSql());
     }
 }

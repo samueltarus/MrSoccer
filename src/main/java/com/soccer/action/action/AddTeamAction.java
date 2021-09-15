@@ -22,6 +22,10 @@ public class AddTeamAction extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/addteam.jsp").forward(request, response);
+
+        HttpSession session = request.getSession(false);
+        if (session != null)
+            session.invalidate();
     }
 
     @Override

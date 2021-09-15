@@ -50,6 +50,7 @@
     <div class="container">
         <h1 class="logo"><a href="/MrSoccer/home">MrSoccer</a></h1>
         <ul class="nav">
+            <li><a href="/MrSoccer/addPlayer">Add Player</a></li>
             <li><a href="/MrSoccer/clubs">Clubs</a></li>
             <li><a href="/MrSoccer/managers">Managers</a></li>
             <li><a href="/MrSoccer/signout">Sign Out</a></li>
