@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/simplelightbox.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Kimkim-It's me your boy Kim</title>
+    <title>MrSoccer</title>
 
     <style>
         :root {
@@ -339,7 +339,7 @@
             <li><a href="/MrSoccer/clubs">Clubs</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
             <li><a href="/MrSoccer/managers">Managers</a></li>
-            <li><a href="/MrSoccer/login">Sign In</a></li>
+            <li><a href="/MrSoccer/login">Sign Out</a></li>
         </ul>
     </div>
 </nav>

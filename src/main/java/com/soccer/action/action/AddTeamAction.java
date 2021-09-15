@@ -38,6 +38,6 @@ public class AddTeamAction extends HttpServlet {
 
         logic.addTeam(club);
 
-        response.sendRedirect("/MrSoccer/home");
+        response.sendRedirect("/MrSoccer/clubs");
     }
 }
