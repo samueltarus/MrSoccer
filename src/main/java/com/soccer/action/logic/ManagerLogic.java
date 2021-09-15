@@ -3,6 +3,7 @@ package com.soccer.action.logic;
 import com.soccer.action.db.utils.DatabaseUtil;
 import com.soccer.action.interfaces.ManagerI;
 import com.soccer.action.models.Manager;
+import com.soccer.action.models.Player;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -28,5 +29,10 @@ public class ManagerLogic extends DatabaseUtil implements ManagerI {
         }
 
         return managers;
+    }
+
+    public void addManager(Manager manager) {
+
+        executeUpdate(manager.createUpdateSql());
     }
 }

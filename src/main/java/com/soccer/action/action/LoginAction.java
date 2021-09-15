@@ -24,8 +24,12 @@ import java.util.Random;
 )
 public class LoginAction extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-        req.getRequestDispatcher("./login.jsp").forward(req, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("./login.jsp").forward(request, response);
+
+        HttpSession session = request.getSession(true);
+        if (session != null)
+            session.invalidate();
     }
 
     @Override

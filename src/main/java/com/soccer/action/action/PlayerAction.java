@@ -34,9 +34,6 @@ public class PlayerAction extends HttpServlet {
             e.printStackTrace();
         }
 
-        HttpSession session = request.getSession(false);
-        if (session != null)
-            session.invalidate();
     }
 
 }

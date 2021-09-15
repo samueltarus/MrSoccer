@@ -47,4 +47,43 @@ public class Manager {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
+
+    public String createUpdateSql() {
+
+        String sql;
+
+        if (getId() != 0) {
+            //int id, String name, String club, String nationality
+            sql = "insert into managers(id,name,club,nationality) values(";
+
+            sql += getId() + ",";
+            sql += "'" + getName() + "',";
+            sql += "'" + getClub() + "',";
+            sql += "'" + getNationality() + "')";
+
+        } else {
+            sql = "update players set ";
+
+            String setCol = "";
+
+            if (getName() != null && !getName().trim().equals(""))
+                setCol += "name='" + getName();
+
+            if (!setCol.equals("") && getClub() != null && !getClub().trim().equals(""))
+                setCol += ",club='" + getClub() + "',";
+
+            if (!setCol.equals("") && getNationality() != null)
+                setCol += ",nationality=" + getNationality() + "',";
+
+            sql += setCol;
+
+            sql += " where id=" + getId();
+
+        }
+
+        System.out.println("Executing sql: " + sql);
+
+        return sql;
+
+    }
 }

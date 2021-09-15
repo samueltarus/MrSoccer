@@ -55,7 +55,7 @@
 <div class="row" style="background-image: url('background.jpg');">
   <form action="/MrSoccer/addPlayer" method="post">
 
-    <h3>Add Club details</h3>
+    <h3>Add Player details</h3>
     <hr>
 
     <div class="mb-3">
