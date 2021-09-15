@@ -50,7 +50,7 @@
     <div class="container">
         <h1 class="logo"><a href="/MrSoccer/home">MrSoccer</a></h1>
         <ul class="nav">
-            <li><a href="/MrSoccer/players">Players</a></li>
+            <li><a href="/MrSoccer/clubs">Clubs</a></li>
             <li><a href="/MrSoccer/managers">Managers</a></li>
             <li><a href="/MrSoccer/signout">Sign Out</a></li>
         </ul>
@@ -62,25 +62,19 @@
     <table class="table table-success table-striped">
         <thead>
         <tr>
-            <th scope="col">Club Id</th>
-            <th scope="col">Club Coach</th>
-            <th scope="col">Club Location</th>
-            <th scope="col">Club League</th>
-            <th scope="col">Club Name</th>
-            <th scope="col">Club Level</th>
+            <th scope="col">Player Name</th>
+            <th scope="col">Player Country</th>
+            <th scope="col">Player Position</th>
 
         </tr>
         </thead>
 
         <tbody>
-        <c:forEach items="${clubs}" var="club">
+        <c:forEach items="${players}" var="players">
             <tr>
-                <td>${club.id}</td>
-                <th>${club.coach}</th>
-                <td>${club.location}</td>
-                <td>${club.league}</td>
-                <td>${club.name}</td>
-                <td>${club.level}</td>
+                <th>${players.name}</th>
+                <td>${players.country}</td>
+                <td>${players.position}</td>
             </tr>
         </c:forEach>
 

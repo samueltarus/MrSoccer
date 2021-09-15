@@ -16,6 +16,9 @@ public class Player {
         this.position = position;
     }
 
+    public Player() {
+    }
+
     public int getId() {
         return id;
     }

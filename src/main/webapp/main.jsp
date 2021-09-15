@@ -23,7 +23,7 @@
         :root {
             --primary-color: #333;
             --secondary-color: #444;
-            --overlay-color: rgba(0,0,0,3,7);
+            --overlay-color: rgba(0,0,0,3);
         }
 
         *{
@@ -116,7 +116,7 @@
         /*Section B */
         .section-b {
             position: relative;
-            background: url('../img/section-b.jpg') no-repeat bottom center/cover;
+            background: url("bg.jpg") no-repeat bottom center/cover;
             height: 600px;
         }
 
@@ -339,7 +339,7 @@
             <li><a href="/MrSoccer/clubs">Clubs</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
             <li><a href="/MrSoccer/managers">Managers</a></li>
-            <li><a href="/MrSoccer/login">Login</a></li>
+            <li><a href="/MrSoccer/login">Sign In</a></li>
         </ul>
     </div>
 </nav>
@@ -382,10 +382,10 @@
 
         <div>
             <ul>
-                <li><a href="#">Clubs</a> </li>
-                <li><a href="#">Players</a> </li>
-                <li><a href="#">Managers</a> </li>
-                <li><a href="#">Terms of Service</a> </li>
+                <li><a href="/MrSoccer/clubs">Clubs</a> </li>
+                <li><a href="/MrSoccer/players">Players</a> </li>
+                <li><a href="/MrSoccer/managers">Managers</a> </li>
+                <li><a href="/MrSoccer/home">Terms of Service</a> </li>
             </ul>
         </div>
         <div>
