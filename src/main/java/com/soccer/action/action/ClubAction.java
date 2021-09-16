@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,9 +20,10 @@ import java.util.List;
         }
 )
 public class ClubAction extends HttpServlet {
+    ClubLogic logic = new ClubLogic();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ClubLogic logic = new ClubLogic();
         try {
             List<Club> clubs = logic.listTeam();
             request.setAttribute("clubs", clubs);
@@ -34,7 +34,27 @@ public class ClubAction extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+       /* try {
+            String clubName = request.getParameter("clubName");
+            request.setAttribute("clubName", clubName);
+            logic.searchClub(clubName);
+
+            if (logic.searchClub(clubName).size() != 0)
+            {
+                System.out.println("==========");
+                System.out.println("Kwani ni kesho");
+                request.getRequestDispatcher("/searchedClubs.jsp").forward(request, response);
+            }
+            else
+            {
+                request.getRequestDispatcher("/clubs.jsp").forward(request, response);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
     }
 }

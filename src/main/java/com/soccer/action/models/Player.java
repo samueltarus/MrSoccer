@@ -1,7 +1,5 @@
 package com.soccer.action.models;
 
-import com.soccer.action.enums.Position;
-
 public class Player {
 
     private int id;

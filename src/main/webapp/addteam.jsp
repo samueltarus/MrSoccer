@@ -66,32 +66,46 @@
         <div class="mb-3">
             <input type="number" class="form-control" id="id" name="id">
         </div>
-    </div>
 
+        <div class="mb-3">
+            <label for="coach" class="form-label">Team Coach</label>
+        </div>
 
-    <div class="mb-3">
-        <label for="coach" class="form-label">Team Coach</label>
-        <input type="text" class="form-control" id="coach" name="coach">
-    </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="coach" name="coach">
+        </div>
 
-    <div class="mb-3">
-        <label for="location" class="form-label">Team Location</label>
-        <input type="text" class="form-control" id="location" name="location">
-    </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Team Location</label>
+        </div>
 
-    <div class="mb-3">
-        <label for="name" class="form-label">Team Name</label>
-        <input type="text" class="form-control" id="name" name="name">
-    </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="location" name="location">
+        </div>
 
-    <div class="mb-3">
-        <label for="league" class="form-label">Team League</label>
-        <input type="text" class="form-control" id="league" name="league">
-    </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Team Name</label>
+        </div>
 
-    <div class="mb-3">
-        <label for="level" class="form-label">Team Level</label>
-        <input type="text" class="form-control" id="level" name="level">
+        <div class="mb-3">
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+
+        <div class="mb-3">
+            <label for="league" class="form-label">Team League</label>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" class="form-control" id="league" name="league">
+        </div>
+
+        <div class="mb-3">
+            <label for="level" class="form-label">Team Level</label>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" class="form-control" id="level" name="level">
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

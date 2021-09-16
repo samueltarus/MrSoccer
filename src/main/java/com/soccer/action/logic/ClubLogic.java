@@ -7,6 +7,7 @@ import com.soccer.action.models.Club;
 import com.soccer.action.db.utils.DatabaseUtil;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,9 +43,20 @@ public class ClubLogic extends DatabaseUtil implements TeamInterface {
         return clubs;
     }
 
-    public void searchTeam(Club club) {
-        /*Perform search query from db using either teamId, teamName*/
-        executeQuery("SELECT * FROM teams WHERE id=" + club.getId());
+    public List<Club> searchClub(String name) throws SQLException {
+        List<Club> clubList = new ArrayList<>();
+
+        ResultSet resultSet =
+                executeQuery("SELECT * FROM teams WHERE name='" + name + "'");
+
+        while (resultSet.next()){
+            Club club = new Club();
+            club.setName(resultSet.getString("name"));
+            club.setLeague(League.valueOf(resultSet.getString("league")));
+            club.setCoach(resultSet.getString("coach"));
+            clubList.add(club);
+        }
+        return clubList;
     }
 
     public void deleteTeam(Club club) {

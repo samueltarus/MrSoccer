@@ -2,6 +2,7 @@ package com.soccer.action.interfaces;
 
 import com.soccer.action.models.Club;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface TeamInterface {
@@ -11,7 +12,7 @@ public interface TeamInterface {
 
     List<Club> listTeam() throws Exception;
 
-    void searchTeam(Club club);
+    List<Club> searchClub(String name) throws SQLException;
 
     void deleteTeam(Club club);
 }

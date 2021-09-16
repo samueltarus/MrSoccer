@@ -32,4 +32,9 @@ public class PlayerLogic extends DatabaseUtil implements PlayerI {
     public void addPlayer(Player player) {
         executeUpdate(player.createUpdateSql());
     }
+
+    public void searchPlayer(String name) {
+        /*Perform search query from db using either playerName*/
+        executeQuery("SELECT * FROM players WHERE name LIKE '%" + name + "%'");
+    }
 }
