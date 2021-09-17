@@ -18,8 +18,12 @@
         <param-name>Application Developer</param-name>
         <param-value>Kevin</param-value>
     </context-param>
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/module.xml</param-value>
+    </context-param>
 
-<!--    <servlet>-->
+    <!--    <servlet>-->
 <!--        <servlet-name>Home</servlet-name>-->
 <!--        <servlet-class>com.soccer.action.action.HomeAction</servlet-class>-->
 <!--    </servlet>-->
@@ -63,5 +67,14 @@
     <listener>
         <listener-class>com.soccer.action.db.utils.AppBootListener</listener-class>
     </listener>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 
 </web-app>

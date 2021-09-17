@@ -16,7 +16,7 @@ public class StandingsLogic extends DatabaseUtil implements StandingsI {
     public List<Standings> listPosition() throws Exception {
         List<Standings> standingsList = new ArrayList<Standings>();
         try {
-            ResultSet result = executeQuery("SELECT * FROM standings");
+            ResultSet result = executeQuery("SELECT * FROM standings ORDER BY clubPosition ASC");
             while (result.next()) {
                 Standings standings = new Standings();
                 standings.setClubName(result.getString(2));
