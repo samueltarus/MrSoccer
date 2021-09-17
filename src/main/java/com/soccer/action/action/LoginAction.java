@@ -27,6 +27,12 @@ public class LoginAction extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("./login.jsp").forward(request, response);
 
+        String sessionMsg = (String) request.getSession().getAttribute("LOGIN_MSG");
+        if (sessionMsg != null) {
+            request.setAttribute("sessionMsg", sessionMsg);
+            request.getRequestDispatcher("./login.jsp").forward(request, response);
+        }
+
         HttpSession session = request.getSession(true);
         if (session != null)
             session.invalidate();
@@ -47,8 +53,11 @@ public class LoginAction extends HttpServlet {
                 session.setAttribute("password", login.getPassword());
                 response.sendRedirect("/MrSoccer/home");
             } else {
-                session.setAttribute("LOGIN_MSG", "Invalid Login Details");
+                //session.invalidate();
+                request.setAttribute("error", "Invalid user or password");
                 response.sendRedirect("./login.jsp");
+
+                System.out.println("========error=======" + request.getAttribute("error"));
             }
         } catch (Exception e) {
             e.printStackTrace();

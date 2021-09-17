@@ -32,29 +32,4 @@ public class ClubAction extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-       /* try {
-            String clubName = request.getParameter("clubName");
-            request.setAttribute("clubName", clubName);
-            logic.searchClub(clubName);
-
-            if (logic.searchClub(clubName).size() != 0)
-            {
-                System.out.println("==========");
-                System.out.println("Kwani ni kesho");
-                request.getRequestDispatcher("/searchedClubs.jsp").forward(request, response);
-            }
-            else
-            {
-                request.getRequestDispatcher("/clubs.jsp").forward(request, response);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-    }
 }

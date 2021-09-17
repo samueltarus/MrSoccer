@@ -54,6 +54,9 @@
 <body>
 
 <div class="row" style="background-image: url('bg.jpg');">
+
+        <p><%= request.getAttribute("error")%><br></p>
+
     <form action="/MrSoccer/login" method="post">
 
         <h3>Login</h3>
@@ -66,11 +69,28 @@
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password">
+
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
+
 </div>
+
+<script>
+    function errorMessage() {
+        var error = document.getElementById("error")
+        if (document.getElementById("username").value !== document.getElementById("password"))
+        {
+            // Changing content and color of content
+            error.textContent = "Please enter valid login details"
+            error.style.color = "red"
+        } else {
+            error.textContent = ""
+        }
+    }
+</script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

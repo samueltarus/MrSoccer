@@ -3,16 +3,19 @@ package com.soccer.action.db.utils;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+
+@WebListener
 public class AppBootListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         //is invoked when application is deployed on the server.
 
         try {
-            Connection connection = DbUtil.getInstance().getConnection();
+            Connection connection = DbUtil.getInstance().getDataSource().getConnection();
             this.createDbTables(connection);
             ServletContext sc = sce.getServletContext();
             sc.setAttribute("mysqlConn", connection);

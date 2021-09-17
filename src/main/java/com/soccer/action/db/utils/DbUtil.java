@@ -1,33 +1,38 @@
 package com.soccer.action.db.utils;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
-
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class DbUtil {
 
-    private static DataSource ds;
-    private MysqlDataSource mysqlDataSource = new MysqlDataSource();
+    private static DbUtil ds;
+
+    private DataSource dataSource;
 
     private DbUtil(){
-        mysqlDataSource.setUrl("jdbc:mysql://localhost:3306/mr_footer");
-        mysqlDataSource.setUser("root");
-        mysqlDataSource.setPassword("12345");
+        try {
+            InitialContext initialContext = new InitialContext();
+            dataSource = (DataSource) initialContext.lookup("java:jboss/datasources/MrSoccer");
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+
     }
 
-    public static DataSource getInstance(){
-        if (ds == null){
-            ds = new DbUtil().mysqlDataSource;
-        }
+    public static DbUtil getInstance(){
+        if (ds == null)
+            ds = new DbUtil();
 
         return ds;
     }
 
-    public MysqlDataSource getMysqlDataSource() {
-        return mysqlDataSource;
+    public DataSource getDataSource() {
+        return dataSource;
     }
 
-    public void setMysqlDataSource(MysqlDataSource mysqlDataSource) {
-        this.mysqlDataSource = mysqlDataSource;
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
+
 }
