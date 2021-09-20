@@ -15,4 +15,6 @@ public interface TeamInterface {
     List<Club> searchClub(String name) throws SQLException;
 
     void deleteTeam(Club club);
+
+
 }

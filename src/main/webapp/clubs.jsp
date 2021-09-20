@@ -389,7 +389,7 @@
         </div>
         <div class="col-md-7">
             <div class="card-body">
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search club.." title="Type in a name">
+                <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search club.." title="Type in a name">
                 <table id="myTable" class="table table-dark table-hover">
                     <thead>
                     <tr>
@@ -419,7 +419,7 @@
 </div>
 
 <script>
-    function myFunction() {
+    function searchFunction() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();

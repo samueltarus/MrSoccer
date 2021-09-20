@@ -2,7 +2,7 @@ package com.soccer.action.action;
 
 import com.soccer.action.bean.LoginBean;
 import com.soccer.action.bean.LoginBeanI;
-import com.soccer.action.models.Login;
+import com.soccer.action.models.User;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
@@ -45,12 +45,12 @@ public class LoginAction extends HttpServlet {
         LoginBeanI loginBeanI = new LoginBean();
 
         try {
-            Login login = new Login();
-            BeanUtils.populate(login, request.getParameterMap());
-            if (loginBeanI.checkUser(login)) {
+            User user = new User();
+            BeanUtils.populate(user, request.getParameterMap());
+            if (loginBeanI.checkUser(user)) {
                 session.setAttribute("session-id", new Random().nextInt());
-                session.setAttribute("username", login.getUsername());
-                session.setAttribute("password", login.getPassword());
+                session.setAttribute("username", user.getUsername());
+                session.setAttribute("password", user.getPassword());
                 response.sendRedirect("/MrSoccer/home");
             } else {
                 //session.invalidate();

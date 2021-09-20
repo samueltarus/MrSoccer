@@ -1,7 +1,7 @@
 package com.soccer.action.bean;
 
-import com.soccer.action.models.Login;
+import com.soccer.action.models.User;
 
 public interface LoginBeanI {
-    boolean checkUser(Login login) throws Exception;
+    boolean checkUser(User user) throws Exception;
 }

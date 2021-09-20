@@ -1,20 +1,34 @@
 package com.soccer.action.bean;
 
-import com.soccer.action.models.Login;
+import com.soccer.action.db.utils.DatabaseUtil;
+import com.soccer.action.models.User;
 
-public class LoginBean implements LoginBeanI {
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-    private static final String USERNAME = "kevin.dev";
-    private static final String PASSWORD = "kevin.dev";
+public class LoginBean extends DatabaseUtil implements LoginBeanI {
 
     @Override
-    public boolean checkUser(Login login) throws Exception {
+    public boolean checkUser(User user) throws Exception {
 
-        if (login.getUsername() == null || login.getPassword() == null)
-            return false;
+        try {
+            String sql = "SELECT * FROM users where username='" + user.getUsername() + "' and password='" + user.getPassword() + "'";
 
-        System.out.println(login.getOtp());
+            ResultSet resultSet = executeQuery(sql);
 
-        return (login.getUsername().equalsIgnoreCase(USERNAME) && login.getPassword().equals(PASSWORD));
+            resultSet.next();
+            String username = resultSet.getString("username");
+            String password = resultSet.getString("password");
+
+            if (username == null || password == null)
+                return false;
+
+            return (user.getUsername().equalsIgnoreCase(username) && user.getPassword().equals(password));
+
+        } catch (SQLException err) {
+            err.getErrorCode();
+        }
+
+        return false;
     }
 }
