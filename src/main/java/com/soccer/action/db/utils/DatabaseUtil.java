@@ -6,8 +6,8 @@ public abstract class DatabaseUtil {
 
     private Connection getDbConnection() throws SQLException
     {
-        Connection connection = DbUtil.getInstance().getDataSource().getConnection();
-        return connection;
+        return DbUtil.getInstance().getDataSource().getConnection();
+
     }
 
     public ResultSet executeQuery(String sql)
