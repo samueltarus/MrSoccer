@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mullatoez
@@ -23,23 +24,23 @@
         :root {
             --primary-color: #333;
             --secondary-color: #444;
-            --overlay-color: rgba(0,0,0,3);
+            --overlay-color: rgba(0, 0, 0, 3);
         }
 
-        *{
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
         body {
-            font-family: 'Catamaran',sans-serif;
+            font-family: 'Catamaran', sans-serif;
             line-height: 1.6;
             color: #333;
             font-size: 1.1rem;
         }
 
-        h1,h2,h3,h4 {
+        h1, h2, h3, h4 {
             line-height: 1.3;
         }
 
@@ -52,7 +53,7 @@
             list-style: none;
         }
 
-        img{
+        img {
             width: 100%;
         }
 
@@ -62,19 +63,20 @@
             overflow: hidden;
             padding: 0 2rem;
         }
+
         .navbar {
-            font-size: 1.2rem;
+            font-size: 0.8rem;
             padding-top: 0.3rem;
             padding-bottom: 0.3rem;
         }
 
-        .navbar .container{
+        .navbar .container {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(2, 1fr);
         }
 
         .navbar .log0 {
-            font-size: 2rem;
+            font-size: 1.2rem;
 
         }
 
@@ -85,31 +87,32 @@
             justify-content: center;
         }
 
-        .navbar .nav a{
+        .navbar .nav a {
             padding: 0 1rem;
         }
 
         .navbar .nav a:hover {
             color: #555;
         }
+
         .section-a {
             margin: 2rem 0;
         }
 
         .section-a .container {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-gap: 3rem;
             align-items: center;
             justify-content: center;
         }
 
-        .section-a h1{
-            font-size:4rem;
+        .section-a h1 {
+            font-size: 4rem;
             color: var(--primary-color);
         }
 
-        .section-a p{
+        .section-a p {
             margin: 1rem 0;
         }
 
@@ -133,52 +136,39 @@
             padding: 5rem 0;
         }
 
-        .section-b-inner h3{
+        .section-b-inner h3 {
             font-size: 2rem;
         }
 
-        .section-b-inner h2{
+        .section-b-inner h2 {
             font-size: 5rem;
             margin-top: 1rem;
         }
 
-        .section-b-inner p{
+        .section-b-inner p {
             font-size: 1.5rem;
             margin-top: 1rem;
         }
 
         .section-c .gallery {
             display: grid;
-            grid-template-columns: repeat(5,1fr);
+            grid-template-columns: repeat(5, 1fr);
         }
 
         .section-c .gallery a:first-child {
             grid-row: 1/3;
             grid-column: 1/3;
         }
-        /*
-        .section-c .gallery a:nth-child(2) {
-            grid-column: 3/5;
-        }
 
-        .section-c .gallery img, .section-c .gallery a {
-            width: 100%;
-            height: 100%;
-        }
-
-        */
-
-        /*footer*/
-
-        .section-footer{
+        .section-footer {
             background: var(--primary-color);
             color: #fff;
             padding: 4rem 0;
         }
 
         .section-footer .container {
-            display:grid;
-            grid-template-columns: repeat(4,1fr);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             grid-gap: 1rem;
         }
 
@@ -197,12 +187,12 @@
         }
 
         .section-footer a > i {
-            color:#555;
+            color: #555;
             margin-right: 0.5rem;
         }
 
         /*Email form*/
-        .email-form{
+        .email-form {
             width: 100%;
             display: inline-block;
             background-color: transparent;
@@ -245,6 +235,7 @@
             cursor: pointer;
             border-radius: 0 20px 20px 0;
         }
+
         /* Utilities */
 
         .btn {
@@ -272,7 +263,7 @@
         }
 
         /*Media Queries*/
-        @media(max-width: 700px) {
+        @media (max-width: 700px) {
             .section-a .container {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -291,38 +282,40 @@
                 width: 80%;
                 margin: auto;
             }
+
             .section-b-inner h2 {
                 font-size: 3.5rem;
             }
 
-            .section-c .gallery{
-                grid-template-columns: repeat(3,1fr);
+            .section-c .gallery {
+                grid-template-columns: repeat(3, 1fr);
             }
-            .section-c .gallery a:first-child{
+
+            .section-c .gallery a:first-child {
                 grid-row: 1/1;
                 grid-column: 1/1;
             }
 
-            .section-c.gallery a:nth-child(2){
+            .section-c.gallery a:nth-child(2) {
                 grid-row: 2/2;
                 grid-column: 2/4;
             }
-            .section-c.gallery a:last-child{
+
+            .section-c.gallery a:last-child {
                 display: none;
             }
 
-            .section-footer{
+            .section-footer {
                 padding: 2rem 0;
             }
 
-            .section-footer .container{
+            .section-footer .container {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
             .section-footer div:nth-child(2),
-            .section-footer div:nth-child(3)
-            {
+            .section-footer div:nth-child(3) {
                 display: none;
             }
 
@@ -332,34 +325,6 @@
 </head>
 
 <body id="home">
-<nav class="navbar">
-    <div class="container">
-        <h1 class="logo"><a href="/MrSoccer/home">MrSoccer</a></h1>
-        <ul class="nav">
-            <li><a href="/MrSoccer/clubs">Clubs</a></li>
-            <li><a href="/MrSoccer/players">Players</a></li>
-            <li><a href="/MrSoccer/managers">Managers</a></li>
-            <li><a href="/MrSoccer/login">Sign Out</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Showcase -->
-<section class="section-a">
-
-    <div class="container">
-        <div>
-            <h3>Trending news</h3>
-            <h5>Shearer: Did you expect anything else from Ronaldo?</h5>
-            <p>
-                Alan Shearer says Cristiano Ronaldo's goalscoring return to Manchester United
-                was nothing more than he and many others expected...
-            </p>
-            <a href="#" class="btn">Read More</a>
-        </div>
-        <img src="bg.jpg" alt="" />
-    </div>
-</section>
 
 <!-- Footer -->
 <footer class="section-footer">
@@ -382,10 +347,10 @@
 
         <div>
             <ul>
-                <li><a href="/MrSoccer/clubs">Clubs</a> </li>
-                <li><a href="/MrSoccer/players">Players</a> </li>
-                <li><a href="/MrSoccer/managers">Managers</a> </li>
-                <li><a href="/MrSoccer/home">Terms of Service</a> </li>
+                <li><a href="/MrSoccer/clubs">Clubs</a></li>
+                <li><a href="/MrSoccer/players">Players</a></li>
+                <li><a href="/MrSoccer/managers">Managers</a></li>
+                <li><a href="/MrSoccer/home">Terms of Service</a></li>
             </ul>
         </div>
         <div>

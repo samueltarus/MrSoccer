@@ -1,8 +1,5 @@
-<%@ page import="java.time.format.DateTimeFormatter" %>
-<%@ page import="java.time.LocalDateTime" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:useBean id="obj" class="com.soccer.action.testClasses.Calculator"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,16 +19,17 @@
     <title>MrSoccer</title>
 
     <jsp:include page="style.jsp" />
-</head>
 
+</head>
 <body id="home">
 <nav class="navbar">
     <div class="container">
         <h1 class="logo"><a href="/MrSoccer/home">MrSoccer</a></h1>
         <ul class="nav">
-            <li><a href="/MrSoccer/addPlayer">Add Player</a></li>
+
+            <li><a href="/MrSoccer/addTeam">Add Club</a></li>
             <li><a href="/MrSoccer/standings">Standings</a></li>
-            <li><a href="/MrSoccer/clubs">Clubs</a></li>
+            <li><a href="/MrSoccer/players">Players</a></li>
             <li><a href="/MrSoccer/managers">Managers</a></li>
             <li><a href="/MrSoccer/login">Sign Out</a></li>
         </ul>
@@ -43,8 +41,8 @@
         <div class="col-md-5">
 
             <div class="card">
-                <div class="card-header">
 
+                <div class="card-header">
                     Trending news
                 </div>
                 <div class="card-body">
@@ -79,26 +77,24 @@
         </div>
         <div class="col-md-7">
             <div class="card-body">
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search player.."
+                <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search club.."
                        title="Type in a name">
                 <table id="myTable" class="table table-dark table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">Player Id</th>
-                        <th scope="col">Player Name</th>
-                        <th scope="col">Player Position</th>
-                        <th scope="col">Player Country</th>
+                        <th scope="col">Coach</th>
+                        <th scope="col">League</th>
+                        <th scope="col">Name</th>
 
                     </tr>
                     </thead>
 
                     <tbody>
-                    <c:forEach items="${players}" var="players">
+                    <c:forEach items="${clubs}" var="club">
                         <tr>
-                            <td>${players.id}</td>
-                            <td>${players.name}</td>
-                            <td>${players.country}</td>
-                            <td>${players.position}</td>
+                            <td>${club.coach}</td>
+                            <td>${club.league}</td>
+                            <td>${club.name}</td>
                         </tr>
                     </c:forEach>
 
@@ -109,16 +105,15 @@
     </div>
 </div>
 
-
 <script>
-    function myFunction() {
+    function searchFunction() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
+            td = tr[i].getElementsByTagName("td")[2];
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -131,8 +126,62 @@
     }
 </script>
 
-<!-- Footer by include -->
-<jsp:include page="footer.jsp" />
+<!-- Footer -->
+<footer class="section-footer">
+    <div class="container">
+        <div>
+            <h2>Follow us on Social Media</h2>
+            <a href="http://twitter.com/mullatoez">
+                <i class="fab fa-twitter fa-2x"></i>
+            </a>
+            <a href="http://instagram.com/mullatoez">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCqzNRcE2KEsBHLaVdinakZg">
+                <i class="fab fa-youtube fa-2x"></i>
+            </a>
+            <a href="http://github.com/mullatoez">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+        </div>
+
+        <div>
+            <ul>
+                <li><a href="/MrSoccer/clubs">Clubs</a></li>
+                <li><a href="/MrSoccer/players">Players</a></li>
+                <li><a href="/MrSoccer/managers">Managers</a></li>
+                <li><a href="/MrSoccer/home">Terms of Service</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Top News</h3>
+
+            <ul>
+                <li><a href="#">Lukaku's new 'home'</a></li>
+                <li><a href="#">CR7 Magic</a></li>
+                <li><a href="#">Ponderous Arsenal</a></li>
+                <li><a href="#">Daniel Farke's fault?</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Subscribe</h3>
+            <p>Wanna get intouch with the developer?Just use your e-mail below</p>
+            <form name="email-form" method="POST" data-netlify="true">
+                <div class="email-form">
+                        <span class="form-control-wrap">
+                            <input type="email" name="email" id="email" size="40" class="form-control"
+                                   placeholder="Email">
+                        </span>
+                    <button type="submit" class="form-control submit">
+                        <i class="fas fa-chevron-right"></i>
+
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</footer>
 
 </body>
 

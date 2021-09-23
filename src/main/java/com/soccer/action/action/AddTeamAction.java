@@ -38,7 +38,6 @@ public class AddTeamAction extends HttpServlet {
                 Level.valueOf(request.getParameter("level")));
 
         logic.addTeam(club);
-
         response.sendRedirect("/MrSoccer/clubs");
     }
 }

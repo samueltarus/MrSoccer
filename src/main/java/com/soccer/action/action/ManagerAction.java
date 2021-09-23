@@ -22,6 +22,7 @@ import java.util.List;
 public class ManagerAction extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         ManagerLogic managerLogic = new ManagerLogic();
         try {
             List<Manager> managers = managerLogic.listManagers();

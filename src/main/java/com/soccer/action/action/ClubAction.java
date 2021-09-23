@@ -27,7 +27,7 @@ public class ClubAction extends HttpServlet {
         try {
             List<Club> clubs = logic.listTeam();
             request.setAttribute("clubs", clubs);
-            request.getRequestDispatcher("/clubs.jsp").forward(request, response);
+            request.getRequestDispatcher("./clubs.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }

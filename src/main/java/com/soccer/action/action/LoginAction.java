@@ -53,11 +53,9 @@ public class LoginAction extends HttpServlet {
                 session.setAttribute("password", user.getPassword());
                 response.sendRedirect("/MrSoccer/home");
             } else {
-                //session.invalidate();
-                request.setAttribute("error", "Invalid user or password");
-                response.sendRedirect("./login.jsp");
 
-                System.out.println("========error=======" + request.getAttribute("error"));
+                response.sendRedirect("/MrSoccer/login");
+
             }
         } catch (Exception e) {
             e.printStackTrace();
