@@ -16,6 +16,9 @@ public class LoginBean extends DatabaseUtil implements LoginBeanI {
 
             ResultSet resultSet = executeQuery(sql);
 
+            if (resultSet == null)
+                return false;
+
             resultSet.next();
             String username = resultSet.getString("username");
             String password = resultSet.getString("password");

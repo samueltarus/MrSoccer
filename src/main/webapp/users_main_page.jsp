@@ -1,3 +1,5 @@
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDateTime" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -7,10 +9,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.soccer.action.models.User" %>
-<%@ page import="java.time.format.DateTimeFormatter" %>
-<%@ page import="java.time.LocalDateTime" %>
-<%@ page import="java.util.Set" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +31,7 @@
     <div class="container">
         <h1 class="logo"><a href="/MrSoccer/home">MrSoccer</a></h1>
         <ul class="nav">
-            <li><a href="/MrSoccer/clubs">Clubs</a></li>
+            <li><a href="/MrSoccer/userclubs">Clubs</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
             <li><a href="/MrSoccer/managers">Managers</a></li>
             <li><a href="/MrSoccer/login">Sign Out</a></li>
@@ -46,6 +44,8 @@
 
     <div class="container">
         <div>
+            <h5>Hi User</h5>
+            <br>
             <h3>
                 <%
                     DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
@@ -54,14 +54,6 @@
                 %>
             </h3>
             <br>
-           <%-- <h3>
-                Logged in users:
-                <% Set<User> logins = (Set<User>) jspContext.getAttribute("logins");
-                for (User s: logins)
-                    System.out.println(s);
-                %>
-
-            </h3>--%>
             <h3>Trending news</h3>
             <h5>Shearer: Did you expect anything else from Ronaldo?</h5>
             <p>

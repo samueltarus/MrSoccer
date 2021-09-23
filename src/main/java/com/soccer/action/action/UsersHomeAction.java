@@ -13,21 +13,23 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(
-        name = "UserClubAction",
-        urlPatterns = "/userclubs",
+        name = "UsersHomeAction",
+        urlPatterns = "/usershome",
         initParams = {
                 @WebInitParam(name = "Page Name", value = "MrSoccer")
         }
 )
-public class UserClubAction extends HttpServlet {
-    ClubLogic logic = new ClubLogic();
+public class UsersHomeAction extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        ClubLogic logic = new ClubLogic();
+
         try {
             List<Club> clubs = logic.listTeam();
             request.setAttribute("clubs", clubs);
-            request.getRequestDispatcher("/user_clubs_page.jsp").forward(request, response);
+            request.getRequestDispatcher("./users_main_page.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }

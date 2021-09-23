@@ -7,20 +7,23 @@ public abstract class DatabaseUtil {
     private Connection getDbConnection() throws SQLException
     {
         return DbUtil.getInstance().getDataSource().getConnection();
-
     }
 
     public ResultSet executeQuery(String sql)
     {
         if (sql == null || sql.trim().equals(""))
+        {
             return null;
+        }
 
         try {
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(sql);
             return preparedStatement.executeQuery();
         } catch (Exception e) {
+            System.out.println("======== Line 23");
             System.out.println(e.getMessage());
         }
+        System.out.println("======== Line 26");
         return null;
     }
 

@@ -1,8 +1,24 @@
 package com.soccer.action.models;
 
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
 import java.io.Serializable;
+import java.util.Set;
 
-public class User implements Serializable {
+public class User implements Serializable, HttpSessionBindingListener {
+
+    @Override
+    public void valueBound(HttpSessionBindingEvent event) {
+        Set<User> logins = (Set<User>) event.getSession().getServletContext().getAttribute("logins");
+        logins.add(this);
+    }
+
+    @Override
+    public void valueUnbound(HttpSessionBindingEvent event) {
+        Set<User> logins = (Set<User>) event.getSession().getServletContext().getAttribute("logins");
+        logins.remove(this);
+    }
+
     private int id;
     private String username;
     private String password;

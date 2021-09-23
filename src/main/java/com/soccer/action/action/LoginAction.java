@@ -51,9 +51,12 @@ public class LoginAction extends HttpServlet {
                 session.setAttribute("session-id", new Random().nextInt());
                 session.setAttribute("username", user.getUsername());
                 session.setAttribute("password", user.getPassword());
-                response.sendRedirect("/MrSoccer/home");
+                if (user.getUsername().equals("admin")) {
+                    response.sendRedirect("./main.jsp");
+                } else {
+                    response.sendRedirect("./users_main_page.jsp");
+                }
             } else {
-
                 response.sendRedirect("/MrSoccer/login");
 
             }
