@@ -28,7 +28,7 @@ public class LoginFilter implements Filter {
         if (session.isNew()){
             session.invalidate();
 
-            if (servletPath.equals("/login"))
+            if (servletPath.equals("/login") || servletPath.equals("/register"))
                 chain.doFilter(request, response);
             else
                 ((HttpServletResponse) response).sendRedirect("http://localhost:8080/MrSoccer/login");

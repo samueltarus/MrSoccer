@@ -24,14 +24,14 @@
     <link rel="stylesheet" href="css/style.css">
     <title>MrSoccer</title>
 
-    <jsp:include page="style.jsp" />
+    <jsp:include page="style.jsp"/>
 
 </head>
 
 <body id="home">
 <nav class="navbar">
     <div class="container">
-        <h1 class="logo"><a href="/MrSoccer/home">MrSoccer</a></h1>
+        <h1 class="logo"><a href="/MrSoccer/home">Welcome to MrSoccer Football Management System</a></h1>
         <ul class="nav">
             <li><a href="/MrSoccer/clubs">Clubs</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
@@ -46,22 +46,16 @@
 
     <div class="container">
         <div>
+            <h5>Hi ${sessionScope.username}, welcome</h5>
+            <br>
             <h3>
                 <%
                     DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
                     LocalDateTime now = LocalDateTime.now();
-                    out.print("Time is " + dateTimeFormatter.format(now));
+                    out.print("It's " + dateTimeFormatter.format(now) + " now!");
                 %>
             </h3>
             <br>
-           <%-- <h3>
-                Logged in users:
-                <% Set<User> logins = (Set<User>) jspContext.getAttribute("logins");
-                for (User s: logins)
-                    System.out.println(s);
-                %>
-
-            </h3>--%>
             <h3>Trending news</h3>
             <h5>Shearer: Did you expect anything else from Ronaldo?</h5>
             <p>
@@ -75,7 +69,7 @@
 </section>
 
 <!-- Footer by include -->
-<jsp:include page="footer.jsp" />
+<jsp:include page="footer.jsp"/>
 
 </body>
 

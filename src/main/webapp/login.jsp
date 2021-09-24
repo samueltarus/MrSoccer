@@ -75,6 +75,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
 
         <hr>
+        <a href="/MrSoccer/register">Register</a>
     </form>
 
 </div>
@@ -84,7 +85,6 @@
         var error = document.getElementById("error")
         if (document.getElementById("username").value !== document.getElementById("password"))
         {
-            // Changing content and color of content
             error.textContent = "Please enter valid login details"
             error.style.color = "red"
         } else {

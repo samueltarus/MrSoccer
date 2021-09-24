@@ -44,13 +44,13 @@
 
     <div class="container">
         <div>
-            <h5>Hi User</h5>
+            <h5>Hi ${sessionScope.username}, welcome</h5>
             <br>
             <h3>
                 <%
                     DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
                     LocalDateTime now = LocalDateTime.now();
-                    out.print("Time is " + dateTimeFormatter.format(now));
+                    out.print("It's " + dateTimeFormatter.format(now) + " now!");
                 %>
             </h3>
             <br>
