@@ -2,6 +2,7 @@ package com.soccer.action.logic;
 
 import com.soccer.action.db.utils.DatabaseUtil;
 import com.soccer.action.interfaces.ManagerI;
+import com.soccer.action.models.Club;
 import com.soccer.action.models.Manager;
 import com.soccer.action.models.Player;
 
@@ -34,5 +35,9 @@ public class ManagerLogic extends DatabaseUtil implements ManagerI {
     public void addManager(Manager manager) {
 
         executeUpdate(manager.createUpdateSql());
+    }
+
+    public void deleteManager(String name) {
+        executeUpdate("DELETE FROM managers WHERE name=" + name);
     }
 }
