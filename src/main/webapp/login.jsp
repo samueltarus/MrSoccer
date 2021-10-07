@@ -53,45 +53,58 @@
 </head>
 <body>
 
-<div class="row" style="background-image: url('bg.jpg');">
-
-        <p><%= request.getAttribute("error")%><br></p>
-
-    <form action="/MrSoccer/login" method="post">
-
-        <h3>Login</h3>
-        <hr>
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username">
-        </div>
-
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
-
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-        <hr>
-        <a href="/MrSoccer/register">Register</a>
-    </form>
-
-</div>
+<div id="loginForm" class="container"></div>
 
 <script>
-    function errorMessage() {
-        var error = document.getElementById("error")
-        if (document.getElementById("username").value !== document.getElementById("password"))
-        {
-            error.textContent = "Please enter valid login details"
-            error.style.color = "red"
-        } else {
-            error.textContent = ""
+    var appComponents = {
+        htmlForm: {
+            formCmp: {},
+            render: function (newFormCmp) {
+                this.formCmp = newFormCmp;
+
+                var formToRender = '<h2>' + this.formCmp.formTitle + '</h2>';
+
+                formToRender += '<form action="' + this.formCmp.url + '" method="' + this.formCmp.method + '">';
+
+                this.formCmp.items.forEach(item => {
+                    formToRender += '<label for="' + item.id + '">' + item.label + ':</label><br>'
+                        + '<input type="' + item.type + '" id="' + item.id + '" name="' + item.name + '"><br>';
+                });
+
+                formToRender += '<input type="' + this.formCmp.submitBtn.type + '" value="' + this.formCmp.submitBtn.value + '"></form>';
+
+                console.log(formToRender);
+                document.getElementById(this.formCmp.renderId).innerHTML = formToRender;
+
+            }
         }
-    }
+    };
+
+    // Login form
+    appComponents.htmlForm.render({
+        url: "./login",
+        method: "POST",
+        formTitle: 'Login',
+        renderId: "loginForm",
+        items: [{
+            label: "Username",
+            name: "username",
+            id: "username",
+            type: "text"
+        }, {
+            label: "Password",
+            name: "password",
+            id: "password",
+            type: "password"
+        }],
+        submitBtn: {
+            type: 'submit',
+            value: 'Login'
+        }
+    });
+
 </script>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

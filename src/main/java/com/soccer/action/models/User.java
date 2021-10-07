@@ -1,9 +1,6 @@
 package com.soccer.action.models;
 
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
 import java.io.Serializable;
-import java.util.Set;
 
 public class User implements Serializable {
 
