@@ -58,7 +58,6 @@ public class LoginAction extends HttpServlet {
                 }
             } else {
                 response.sendRedirect("/MrSoccer/login");
-
             }
         } catch (Exception e) {
             e.printStackTrace();
