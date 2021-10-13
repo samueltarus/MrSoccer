@@ -14,7 +14,6 @@
 
     <style>
         form {
-            /*margin-top: 5%;*/
             text-align: center;
             position: relative;
             z-index: 1;
@@ -52,7 +51,6 @@
     </style>
 </head>
 <body>
-
 <div id="loginForm" class="container"></div>
 
 <script>
@@ -117,7 +115,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-
+</div>
 </body>
 </html>
 

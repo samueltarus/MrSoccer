@@ -25,12 +25,12 @@ import java.util.Random;
 public class LoginAction extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("./login.jsp").forward(request, response);
+        request.getRequestDispatcher("./modal-login.jsp").forward(request, response);
 
         String sessionMsg = (String) request.getSession().getAttribute("LOGIN_MSG");
         if (sessionMsg != null) {
             request.setAttribute("sessionMsg", sessionMsg);
-            request.getRequestDispatcher("./login.jsp").forward(request, response);
+            request.getRequestDispatcher("./modal-login.jsp").forward(request, response);
         }
 
         HttpSession session = request.getSession(true);
@@ -57,7 +57,7 @@ public class LoginAction extends HttpServlet {
                     response.sendRedirect("./users_main_page.jsp");
                 }
             } else {
-                response.sendRedirect("/MrSoccer/login");
+                response.sendRedirect("./modal-login");
             }
         } catch (Exception e) {
             e.printStackTrace();
