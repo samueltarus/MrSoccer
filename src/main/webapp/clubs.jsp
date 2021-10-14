@@ -80,7 +80,7 @@
             <div class="card-body">
                 <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search club.."
                        title="Type in a name">
-                <table id="myTable" class="table table-dark table-hover">
+               <%-- <table id="myTable" class="table table-dark table-hover">
                     <thead>
                     <tr>
                         <th scope="col">Coach</th>
@@ -100,13 +100,20 @@
                     </c:forEach>
 
                     </tbody>
-                </table>
+                </table>--%>
+                <div id="componentRender">
+
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <script>
+
+    <jsp:include page="js/lib.kevin.js"/>
+    <jsp:include page="js/club-list.js"/>
+
     function searchFunction() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");

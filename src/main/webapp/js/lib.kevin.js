@@ -1,4 +1,5 @@
 let appComponents = {
+
     htmlForm : {
         formComponent: {},
         render: function (newFormComponent) {
@@ -16,6 +17,68 @@ let appComponents = {
 
             // console.log(formToRender);
             document.getElementById(this.formComponent.renderId).innerHTML = formToRender;
+
+        }
+    },
+
+    htmlTable: {
+        render: function(){
+            /* this method render html page */
+
+            let me = this;
+            let tableToRender = '<h2>' + me.tableTitle + '</h2>';
+
+            me.buttons.forEach(btn=>{
+                tableToRender += '<button class="table table-dark table-hover" type="button" id="' + btn.id + '">' + btn.label + '</button>';
+            });
+
+            tableToRender += '<br/><br/><table>';
+
+            let tableColGroup = '<colgroup>';
+            let tableHeaders = '<thead><tr>';
+
+            tableColGroup += '<col span="1" style="width: 3%">';
+            tableHeaders += '<th></th>';
+
+            me.columns.forEach(col=>{
+                tableColGroup += '<col span="' + (col.span?col.span: 1) + '" style="'+ (col.width? 'width:' + col.width + '%;': '') + '">';
+                tableHeaders += '<th>' + col.header + '</th>';
+
+            });
+
+            tableColGroup += '</colgroup>';
+            tableHeaders += '</tr></thead>';
+
+            tableToRender += tableColGroup + tableHeaders;
+
+            tableToRender += '<tbody>';
+
+            //load page from html
+            var ajaxReq = new XMLHttpRequest();
+            ajaxReq.onreadystatechange = function(){
+                if (ajaxReq.readyState == XMLHttpRequest.DONE){
+                    if (ajaxReq.status == 200){
+                        let reqRes = eval('(' + ajaxReq.responseText + ')');
+                        reqRes.list.forEach(row=>{
+                            tableToRender += '<tr><td><input type="checkbox" name="name1" />&nbsp;</td>';
+
+                            me.columns.forEach(col=>{
+                                tableToRender += '<td>' + row[col.dataIndex] + '</td>';
+                            });
+                            tableToRender += '</tr>';
+
+                        });
+
+                    }
+                }
+            }
+
+            ajaxReq.open(me.method, me.url, false);
+            ajaxReq.send();
+
+            tableToRender += '</tbody>'
+            document.getElementById(me.renderTo).innerHTML = tableToRender;
+
 
         }
     }

@@ -5,6 +5,7 @@ import com.soccer.action.bean.LoginBeanI;
 import com.soccer.action.models.User;
 import org.apache.commons.beanutils.BeanUtils;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,8 @@ import java.util.Random;
         }
 )
 public class LoginAction extends HttpServlet {
+
+    @Inject()
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("./modal-login.jsp").forward(request, response);

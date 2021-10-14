@@ -99,6 +99,8 @@ var AppComponents = {
 
         }
     },
+
+
     htmlTable: {
         render: function(){
             /* this method render html page */

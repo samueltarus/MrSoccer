@@ -1,7 +1,9 @@
 package com.soccer.action.action;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soccer.action.logic.ClubLogic;
 import com.soccer.action.models.Club;
+import com.soccer.action.utils.ResultWrapper;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -27,7 +29,16 @@ public class ClubAction extends HttpServlet {
         try {
             List<Club> clubs = logic.listTeam();
             request.setAttribute("clubs", clubs);
-            request.getRequestDispatcher("./clubs.jsp").forward(request, response);
+
+            ObjectMapper mapper = new ObjectMapper();
+
+            ResultWrapper clubWrapper = new ResultWrapper();
+            clubWrapper.setList(clubs);
+
+            response.setContentType("application/json");
+            response.getWriter().write(mapper.writeValueAsString(clubWrapper));
+
+            //request.getRequestDispatcher("./clubs.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
