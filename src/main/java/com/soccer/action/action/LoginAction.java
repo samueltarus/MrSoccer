@@ -2,6 +2,7 @@ package com.soccer.action.action;
 
 import com.soccer.action.bean.LoginBean;
 import com.soccer.action.bean.LoginBeanI;
+import com.soccer.action.db.utils.DatabaseUtil;
 import com.soccer.action.models.User;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Random;
 
 @WebServlet(
@@ -23,9 +26,13 @@ import java.util.Random;
                 @WebInitParam(name = "Page Name", value = "MrSoccer")
         }
 )
+
+
 public class LoginAction extends HttpServlet {
 
-    @Inject()
+    @Inject
+    LoginBeanI loginBeanI;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("./modal-login.jsp").forward(request, response);
@@ -45,7 +52,6 @@ public class LoginAction extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession(true);
-        LoginBeanI loginBeanI = new LoginBean();
 
         try {
             User user = new User();
@@ -54,6 +60,7 @@ public class LoginAction extends HttpServlet {
                 session.setAttribute("session-id", new Random().nextInt());
                 session.setAttribute("username", user.getUsername());
                 session.setAttribute("password", user.getPassword());
+
                 if (user.getUsername().equals("admin")) {
                     response.sendRedirect("./main.jsp");
                 } else {

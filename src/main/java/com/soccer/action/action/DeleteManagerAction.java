@@ -24,8 +24,8 @@ public class DeleteManagerAction extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ManagerLogic logic = new ManagerLogic();
 
-        String name = req.getParameter("name");
-        logic.deleteManager(name);
+        int id = Integer.parseInt(req.getParameter("id"));
+        logic.deleteManager(id);
 
         resp.sendRedirect("./managers.jsp");
     }

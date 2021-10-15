@@ -7,16 +7,21 @@ import com.soccer.action.interfaces.StandingsI;
 import com.soccer.action.models.Club;
 import com.soccer.action.models.Standings;
 
+import javax.inject.Inject;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StandingsLogic extends DatabaseUtil implements StandingsI {
+public class StandingsLogic implements StandingsI {
+
+    @Inject
+    DatabaseUtil databaseUtil;
+
     @Override
     public List<Standings> listPosition() throws Exception {
         List<Standings> standingsList = new ArrayList<Standings>();
         try {
-            ResultSet result = executeQuery("SELECT * FROM standings ORDER BY clubPosition ASC");
+            ResultSet result = databaseUtil.executeQuery("SELECT * FROM standings ORDER BY clubPosition ASC");
             while (result.next()) {
                 Standings standings = new Standings();
                 standings.setClubName(result.getString(2));

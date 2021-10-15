@@ -1,24 +1,14 @@
 package com.soccer.action.db.utils;
 
-import javax.naming.InitialContext;
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 public class DbUtil {
 
     private static DbUtil ds;
 
+    @Resource(lookup = "java:jboss/datasources/MrSoccer")
     private DataSource dataSource;
-
-    private DbUtil(){
-        try {
-            InitialContext initialContext = new InitialContext();
-            dataSource = (DataSource) initialContext.lookup("java:jboss/datasources/MrSoccer");
-
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-
-    }
 
     public static DbUtil getInstance(){
         if (ds == null)

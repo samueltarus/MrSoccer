@@ -1,6 +1,6 @@
 let appComponents = {
 
-    htmlForm : {
+    htmlForm: {
         formComponent: {},
         render: function (newFormComponent) {
             this.formComponent = newFormComponent
@@ -22,13 +22,13 @@ let appComponents = {
     },
 
     htmlTable: {
-        render: function(){
+        render: function () {
             /* this method render html page */
 
             let me = this;
             let tableToRender = '<h2>' + me.tableTitle + '</h2>';
 
-            me.buttons.forEach(btn=>{
+            me.buttons.forEach(btn => {
                 tableToRender += '<button class="table table-dark table-hover" type="button" id="' + btn.id + '">' + btn.label + '</button>';
             });
 
@@ -40,8 +40,8 @@ let appComponents = {
             tableColGroup += '<col span="1" style="width: 3%">';
             tableHeaders += '<th></th>';
 
-            me.columns.forEach(col=>{
-                tableColGroup += '<col span="' + (col.span?col.span: 1) + '" style="'+ (col.width? 'width:' + col.width + '%;': '') + '">';
+            me.columns.forEach(col => {
+                tableColGroup += '<col span="' + (col.span ? col.span : 1) + '" style="' + (col.width ? 'width:' + col.width + '%;' : '') + '">';
                 tableHeaders += '<th>' + col.header + '</th>';
 
             });
@@ -55,16 +55,23 @@ let appComponents = {
 
             //load page from html
             var ajaxReq = new XMLHttpRequest();
-            ajaxReq.onreadystatechange = function(){
-                if (ajaxReq.readyState == XMLHttpRequest.DONE){
-                    if (ajaxReq.status == 200){
+            ajaxReq.onreadystatechange = function () {
+                if (ajaxReq.readyState == XMLHttpRequest.DONE) {
+                    if (ajaxReq.status == 200) {
                         let reqRes = eval('(' + ajaxReq.responseText + ')');
-                        reqRes.list.forEach(row=>{
-                            tableToRender += '<tr><td><input type="checkbox" name="name1" />&nbsp;</td>';
+                        reqRes.list.forEach(row => {
+                            tableToRender += '<tr><td><input type="checkbox" name="myCheck" />&nbsp;</td>';
+                            /* <td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a
+                                href="delete?id=<c:out value='${user.id}' />">Delete</a></td>*/
 
-                            me.columns.forEach(col=>{
-                                tableToRender += '<td>' + row[col.dataIndex] + '</td>';
+                            me.columns.forEach(col => {
+                                tableToRender += '<td>' + row[col.dataIndex] + '&nbsp;<a href="delete?id="' + row[id] + '/>Delete' +
+                                    '</td>';
                             });
+
+
                             tableToRender += '</tr>';
 
                         });
@@ -79,8 +86,23 @@ let appComponents = {
             tableToRender += '</tbody>'
             document.getElementById(me.renderTo).innerHTML = tableToRender;
 
+            //loop through the buttons again and add event listeners, modifying url, method, showMsg, success function, failure fucntion
+            me.buttons.forEach(btn => {
+                document.getElementById(btn.id).addEventListener("click", event => {
+                    event.preventDefault();
+
+                    me.url = btn.url;
+                    me.method = btn.method;
+                    me.showMsg = btn.showMsg;
+                    me.success = btn.success; // will execute if saving is success
+                    me.failure = btn.failure; //will execute if saving is failure
+
+                    AppComponents.htmlForm.submit.apply(me);
+
+                });
+            });
 
         }
-    }
+    },
 
 }

@@ -74,7 +74,7 @@
     <div class="col-md-7">
       <div class="card-body">
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search manager.." title="Type in a name">
-        <table id="myTable" class="table table-dark table-hover">
+        <%--<table id="myTable" class="table table-dark table-hover">
           <thead>
           <tr>
             <th scope="col">Name</th>
@@ -94,7 +94,10 @@
           </c:forEach>
 
           </tbody>
-        </table>
+        </table>--%>
+        <div id="componentRender">
+
+        </div>
       </div>
     </div>
   </div>
@@ -102,6 +105,10 @@
 
 
 <script>
+
+  <jsp:include page="js/cohort9.lib.js"/>
+  <jsp:include page="js/managers-list.js"/>
+
   function myFunction() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");

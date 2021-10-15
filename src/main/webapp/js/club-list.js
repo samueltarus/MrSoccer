@@ -3,18 +3,24 @@ appComponents.htmlTable.render.call({
     method: "GET",
     tableTitle: 'Clubs',
     renderTo: 'componentRender',
-    columns: [{
-        header: "Coach",
-        dataIndex: "coach",
-        width: 35
-    }, {
-        header: "League",
-        dataIndex: "league",
-        width: 35
-    }, {
-        header: "Name",
-        dataIndex: "name",
-        width: 35
-    }],
+    columns: [
+        {
+            header: "Id",
+            dataIndex: 'id',
+            width: 15,
+        },
+        {
+            header: "Coach",
+            dataIndex: "coach",
+            width: 20
+        }, {
+            header: "League",
+            dataIndex: "league",
+            width: 20
+        }, {
+            header: "Name",
+            dataIndex: "name",
+            width: 20
+        }],
     buttons: []
 });

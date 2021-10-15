@@ -61,13 +61,6 @@
 
     <div class="row">
         <div class="mb-3">
-            <label for="id" class="form-label">Team Id</label>
-        </div>
-        <div class="mb-3">
-            <input type="number" class="form-control" id="id" name="id">
-        </div>
-
-        <div class="mb-3">
             <label for="coach" class="form-label">Team Coach</label>
         </div>
 

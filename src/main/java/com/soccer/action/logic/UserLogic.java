@@ -3,7 +3,13 @@ package com.soccer.action.logic;
 import com.soccer.action.db.utils.DatabaseUtil;
 import com.soccer.action.models.User;
 
-public class UserLogic extends DatabaseUtil {
+import javax.inject.Inject;
+import javax.xml.crypto.Data;
+
+public class UserLogic {
+
+    @Inject
+    DatabaseUtil databaseUtil;
 
     public String registerUserSql(User user) {
 
@@ -14,7 +20,7 @@ public class UserLogic extends DatabaseUtil {
         sql += "'" + user.getUsername() + "',";
         sql += "'" + user.getPassword() + "')";
 
-        executeUpdate(sql);
+        databaseUtil.executeUpdate(sql);
 
         System.out.println("Executing sql: " + sql);
 

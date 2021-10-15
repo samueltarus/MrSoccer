@@ -78,9 +78,8 @@ public class Club {
         String sql;
 
         if (getId() != 0) {
-            sql = "insert into teams(id,coach,location,league,name,level) values(";
+            sql = "insert into clubs(coach,location,league,name,level) values(";
 
-            sql += getId() + ",";
             sql += "'" + getCoach() + "',";
             sql += "'" + getLocation() + "',";
             sql += "'" + (getLeague() == null ? "NA" : getLeague().name()) + "',";

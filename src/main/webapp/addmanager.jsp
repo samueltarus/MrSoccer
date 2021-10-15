@@ -52,39 +52,45 @@
 </head>
 <body>
 
-<div class="row" style="background-image: url('background.jpg');">
-    <form action="/MrSoccer/addManager" method="post">
+<div id="addManagerForm" class="container"></div>
 
-        <h3>Add Manager details</h3>
-        <hr>
+<%--<div class="row" style="background-image: url('background.jpg');">--%>
+<%--    <form action="/MrSoccer/addManager" method="post">--%>
 
-        <div class="mb-3">
-            <label for="id" class="form-label">Id</label>
-            <input type="number" class="form-control" id="id" name="id">
-        </div>
+<%--        <h3>Add Manager details</h3>--%>
+<%--        <hr>--%>
 
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name">
-        </div>
+<%--        <div class="mb-3">--%>
+<%--            <label for="id" class="form-label">Id</label>--%>
+<%--            <input type="number" class="form-control" id="id" name="id">--%>
+<%--        </div>--%>
 
-        <div class="mb-3">
-            <label for="club" class="form-label">Club</label>
-            <input type="text" class="form-control" id="club" name="club">
-        </div>
+<%--        <div class="mb-3">--%>
+<%--            <label for="name" class="form-label">Name</label>--%>
+<%--            <input type="text" class="form-control" id="name" name="name">--%>
+<%--        </div>--%>
 
-        <div class="mb-3">
-            <label for="nationality" class="form-label">Nationality</label>
-            <input type="text" class="form-control" id="nationality" name="nationality">
-        </div>
+<%--        <div class="mb-3">--%>
+<%--            <label for="club" class="form-label">Club</label>--%>
+<%--            <input type="text" class="form-control" id="club" name="club">--%>
+<%--        </div>--%>
 
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-</div>
+<%--        <div class="mb-3">--%>
+<%--            <label for="nationality" class="form-label">Nationality</label>--%>
+<%--            <input type="text" class="form-control" id="nationality" name="nationality">--%>
+<%--        </div>--%>
 
 
+<%--        <button type="submit" class="btn btn-primary">Submit</button>--%>
+<%--    </form>--%>
+
+<%--</div>--%>
+<script>
+
+    <jsp:include page="js/lib.kevin.js"/>
+    <jsp:include page="js/add-manager.js"/>
+
+</script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -96,7 +102,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-
 </body>
 </html>

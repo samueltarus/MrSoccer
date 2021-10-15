@@ -1,12 +1,20 @@
 package com.soccer.action.db.utils;
 
-import java.sql.*;
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public abstract class DatabaseUtil {
+public class DatabaseUtil {
+
+    @Resource(lookup = "java:jboss/datasources/MrSoccer")
+    private DataSource dataSource;
 
     private Connection getDbConnection() throws SQLException
     {
-        return DbUtil.getInstance().getDataSource().getConnection();
+        return dataSource.getConnection();
     }
 
     public ResultSet executeQuery(String sql)
@@ -43,6 +51,4 @@ public abstract class DatabaseUtil {
 
         }
     }
-
-
 }

@@ -6,26 +6,29 @@ import com.soccer.action.enums.Level;
 import com.soccer.action.interfaces.TeamInterface;
 import com.soccer.action.models.Club;
 
+import javax.inject.Inject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClubLogic extends DatabaseUtil implements TeamInterface {
+public class ClubLogic implements TeamInterface {
+    @Inject
+    DatabaseUtil databaseUtil;
     public void addTeam(Club club) {
-        executeUpdate(club.createUpdateSql());
+        databaseUtil.executeUpdate(club.createUpdateSql());
     }
 
     public void editTeam(Club club) {
         if (club == null || club.getId() == 0)
             return;
-        executeUpdate(club.createUpdateSql());
+        databaseUtil.executeUpdate(club.createUpdateSql());
     }
 
     public List<Club> listTeam() throws Exception {
         List<Club> clubs = new ArrayList<Club>();
         try {
-            ResultSet result = executeQuery("SELECT * FROM teams");
+            ResultSet result = databaseUtil.executeQuery("SELECT * FROM teams");
             while (result.next()) {
                 Club club = new Club();
                 club.setId(result.getInt(1));
@@ -47,7 +50,7 @@ public class ClubLogic extends DatabaseUtil implements TeamInterface {
         List<Club> clubList = new ArrayList<>();
 
         ResultSet resultSet =
-                executeQuery("SELECT * FROM teams WHERE name='" + name + "'");
+                databaseUtil.executeQuery("SELECT * FROM teams WHERE name='" + name + "'");
 
         while (resultSet.next()){
             Club club = new Club();
@@ -60,6 +63,6 @@ public class ClubLogic extends DatabaseUtil implements TeamInterface {
     }
 
     public void deleteTeam(Club club) {
-        executeUpdate("DELETE FROM teams WHERE id=" + club.getId());
+        databaseUtil.executeUpdate("DELETE FROM teams WHERE id=" + club.getId());
     }
 }

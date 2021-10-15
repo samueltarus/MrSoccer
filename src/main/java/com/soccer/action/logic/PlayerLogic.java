@@ -4,16 +4,21 @@ import com.soccer.action.db.utils.DatabaseUtil;
 import com.soccer.action.interfaces.PlayerI;
 import com.soccer.action.models.Player;
 
+import javax.inject.Inject;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerLogic extends DatabaseUtil implements PlayerI {
+public class PlayerLogic implements PlayerI {
+
+    @Inject
+    DatabaseUtil databaseUtil;
+
     @Override
     public List<Player> listPlayer() throws Exception {
         List<Player> players = new ArrayList<Player>();
         try {
-            ResultSet result = executeQuery("SELECT * FROM players");
+            ResultSet result = databaseUtil.executeQuery("SELECT * FROM players");
             while (result.next()) {
                 Player player = new Player();
                 player.setId(result.getInt(1));
@@ -30,11 +35,11 @@ public class PlayerLogic extends DatabaseUtil implements PlayerI {
     }
 
     public void addPlayer(Player player) {
-        executeUpdate(player.createUpdateSql());
+        databaseUtil.executeUpdate(player.createUpdateSql());
     }
 
     public void searchPlayer(String name) {
         /*Perform search query from db using either playerName*/
-        executeQuery("SELECT * FROM players WHERE name LIKE '%" + name + "%'");
+        databaseUtil.executeQuery("SELECT * FROM players WHERE name LIKE '%" + name + "%'");
     }
 }

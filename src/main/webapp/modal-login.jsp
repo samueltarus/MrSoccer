@@ -7,8 +7,6 @@
 
 <div id="loginForm" class="container"></div>
 
-
-
 <script>
 
     <jsp:include page="js/lib.kevin.js"/>
