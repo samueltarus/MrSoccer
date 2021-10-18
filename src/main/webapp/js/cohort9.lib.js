@@ -1,6 +1,6 @@
 var AppComponents = {
-    htmlForm: {
-        render: function () {
+    htmlForm:{
+        render: function(){
             /* this method renders dynamic html form */
 
             //declaring this object to me, so that we can reference to it, even when we are not within this.
@@ -12,16 +12,53 @@ var AppComponents = {
             formToRender += '<form>';
 
             //loop through the form fields and construct form input fields in html
-            me.fields.forEach(field => {
-                formToRender += '<label for="' + field.id + '">' + field.label
-                    + (field.required ? '<span style="color: red;">*</span>' : '') + ':</label><br>'
-                    + '<input type="' + field.type + '" id="' + field.id + '" name="' + field.name + '"><br>';
+            me.fields.forEach(field=>{
+                if (field.type === 'select'){
+                    formToRender += '<label for="' + field.id +'">' + field.label
+                        + (field.required?'<span style="color: red;">*</span>':'') + ':</label><br>'
+                        + '<select name="' + field.name + '" id="' + field.id + '">';
+
+                    let selectOptions;
+                    if (field.select && field.select.data){
+                        selectOptions = field.select.data;
+
+                    }else if (field.select && field.select.url){
+
+                        var ajaxReq = new XMLHttpRequest();
+                        ajaxReq.onreadystatechange = function(){
+                            if (ajaxReq.readyState == XMLHttpRequest.DONE){
+                                if (ajaxReq.status == 200){
+                                    selectOptions = eval('(' + ajaxReq.responseText + ')');
+                                    selectOptions = selectOptions.list;
+                                }
+                            }
+                        }
+
+                        ajaxReq.open('get', field.select.url, false);
+                        ajaxReq.send();
+
+                    }
+
+                    selectOptions.forEach(option =>{
+                        formToRender += '<option value="' + option[field.select.optionMap.value]+ '">' + option[field.select.optionMap.display] + '</option>';
+                    })
+
+                    formToRender += '</select>';
+
+                }else{
+                    formToRender += '<label for="' + field.id +'">' + field.label
+                        + (field.required?'<span style="color: red;">*</span>':'') + ':</label><br>'
+                        +'<input type="' + field.type + '" id="' + field.id +'" name="' + field.name + '"><br>';
+                }
+
             });
+
+            console.log(formToRender);
 
             formToRender += '<br/><br/>';
 
             //add buttons to form render
-            me.buttons.forEach(btn => {
+            me.buttons.forEach(btn=>{
                 formToRender += '<input type="' + btn.type + '" value="' + btn.value + '" id="' + btn.id + '"></form>';
             });
 
@@ -29,8 +66,8 @@ var AppComponents = {
             document.getElementById('componentRender').innerHTML = formToRender;
 
             //loop through the buttons again and add event listeners, modifying url, method, showMsg, success function, failure fucntion
-            me.buttons.forEach(btn => {
-                document.getElementById(btn.id).addEventListener("click", event => {
+            me.buttons.forEach(btn=>{
+                document.getElementById(btn.id).addEventListener("click",  event=>{
                     event.preventDefault();
 
                     me.url = btn.url;
@@ -45,7 +82,7 @@ var AppComponents = {
             });
 
         },
-        submit: function () {
+        submit: function(){
             /* this method submit a form through ajax */
 
             //declaring this object to me, so that we can reference to it, even when we are not within this.
@@ -58,7 +95,7 @@ var AppComponents = {
             let submitForm = true;
 
             //loop through the form to be submitted and collect the values while populating the submitForm variable
-            me.fields.forEach(field => {
+            me.fields.forEach(field=>{
                 let fieldVal = document.getElementById(field.id).value;
                 if (field.required === true && !fieldVal)
                     submitForm = false;
@@ -67,19 +104,17 @@ var AppComponents = {
 
             });
 
-            if (!submitForm) {
+            if (!submitForm){
                 document.getElementById(me.showMsg).innerHTML = 'Please Enter All Required Fields(*)';
                 return;
             }
 
             //ajax component
             var ajaxReq = new XMLHttpRequest();
-            ajaxReq.onreadystatechange = function () {
-                if (ajaxReq.readyState == XMLHttpRequest.DONE) {
-                    if (ajaxReq.status == 200) {
+            ajaxReq.onreadystatechange = function(){
+                if (ajaxReq.readyState == XMLHttpRequest.DONE){
+                    if (ajaxReq.status == 200){
                         let reqRes = eval('(' + ajaxReq.responseText + ')');
-                        console.log(me.success);
-                        console.log(me.failure);
 
                         if (reqRes.loginError)
                             document.getElementById(me.showMsg).innerHTML = reqRes.loginErrorMsg;
@@ -99,43 +134,15 @@ var AppComponents = {
 
         }
     },
-
-
     htmlTable: {
-        render: function () {
+        render: function(){
             /* this method render html page */
 
             let me = this;
             let tableToRender = '<h2>' + me.tableTitle + '</h2>';
 
-            me.buttons.forEach(btn => {
-
-                tableToRender += '<button class="app-btn green-btn"' +
-
-                    ' type="button" id="' + btn.id + '">' + btn.label + '</button>';
-
-                <a href="delete?id=<c:out value='${user.id}' />">Delete</a>
-
-               /* if (btn.type === 'delete') {
-
-                    document.getElementById(btn.id).addEventListener("click", function () {
-
-                        //var tableRows = document.getElementById(me.id).rows;
-
-                        let tableRef = document.getElementById(me.id);
-                        let tbody = tableRef.querySelector("tbody");
-
-                        let checkedInputs = document.querySelectorAll("input[type='checkbox']:checked");
-                        Array.prototype.slice.call(checkedInputs)
-                            .forEach(input => tbody.removeChild(input.parentNode.parentNode))
-
-                        console.log(checkedInputs)
-
-                    });
-
-
-                }*/
-
+           me.buttons.forEach(btn=>{
+                tableToRender += '<button class="app-btn green-btn" type="button" id="' + btn.id + '">' + btn.label + '</button>';
             });
 
             tableToRender += '<br/><br/><table>';
@@ -146,8 +153,8 @@ var AppComponents = {
             tableColGroup += '<col span="1" style="width: 3%">';
             tableHeaders += '<th></th>';
 
-            me.columns.forEach(col => {
-                tableColGroup += '<col span="' + (col.span ? col.span : 1) + '" style="' + (col.width ? 'width:' + col.width + '%;' : '') + '">';
+            me.columns.forEach(col=>{
+                tableColGroup += '<col span="' + (col.span?col.span: 1) + '" style="'+ (col.width? 'width:' + col.width + '%;': '') + '">';
                 tableHeaders += '<th>' + col.header + '</th>';
 
             });
@@ -161,15 +168,14 @@ var AppComponents = {
 
             //load page from html
             var ajaxReq = new XMLHttpRequest();
-            ajaxReq.onreadystatechange = function () {
-                if (ajaxReq.readyState == XMLHttpRequest.DONE) {
-                    if (ajaxReq.status == 200) {
+            ajaxReq.onreadystatechange = function(){
+                if (ajaxReq.readyState === XMLHttpRequest.DONE){
+                    if (ajaxReq.status === 200){
                         let reqRes = eval('(' + ajaxReq.responseText + ')');
+                        reqRes.list.forEach(row=>{
+                            tableToRender += '<tr><td><input type="checkbox" name="name1" />&nbsp;</td>';
 
-                        reqRes.list.forEach(row => {
-                            tableToRender += '<tr><td><input type="checkbox" id="checkbox" class="checkbox" name="name1" value="' + row.id + '" />&nbsp;</td>';
-
-                            me.columns.forEach(col => {
+                            me.columns.forEach(col=>{
                                 tableToRender += '<td>' + row[col.dataIndex] + '</td>';
                             });
                             tableToRender += '</tr>';
@@ -186,39 +192,39 @@ var AppComponents = {
             tableToRender += '</tbody>'
             document.getElementById(me.renderTo).innerHTML = tableToRender;
 
-            me.buttons.forEach(btn => {
+            me.buttons.forEach(btn=>{
                 document.getElementById(btn.id).addEventListener("click", btn.handler);
             });
 
         }
     },
     htmlToNavBar: {
-        render: function () {
+        render: function(){
             let me = this;
 
             let topNavToolBar = '';
 
-            me.links.forEach(link => {
+            me.links.forEach(link=>{
                 topNavToolBar += '<a class="' + link.class + '" id="' + link.id + '" href="#">' + link.label + '</a>';
             });
 
             document.getElementById(me.renderTo).innerHTML = topNavToolBar;
 
-            me.links.forEach(link => {
+            me.links.forEach(link=>{
                 document.getElementById(link.id).addEventListener("click", link.handler);
             });
 
         },
-        changeStyle: function (linkId) {
+        changeStyle: function(linkId){
             let me = this;
             console.log(me);
             console.log(linkId);
 
-            me.links.forEach(link => {
-                if (link.id === linkId) {
+            me.links.forEach(link=>{
+                if (link.id === linkId){
                     document.getElementById(linkId).classList.add("active");
 
-                } else {
+                }else{
                     document.getElementById(linkId).classList.remove("active");
 
                 }

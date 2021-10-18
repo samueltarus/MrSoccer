@@ -15,12 +15,13 @@ import java.util.List;
 public class ClubLogic implements TeamInterface {
     @Inject
     DatabaseUtil databaseUtil;
+
     public void addTeam(Club club) {
         databaseUtil.executeUpdate(club.createUpdateSql());
     }
 
     public void editTeam(Club club) {
-        if (club == null || club.getId() == 0)
+        if (club == null)
             return;
         databaseUtil.executeUpdate(club.createUpdateSql());
     }
@@ -28,10 +29,9 @@ public class ClubLogic implements TeamInterface {
     public List<Club> listTeam() throws Exception {
         List<Club> clubs = new ArrayList<Club>();
         try {
-            ResultSet result = databaseUtil.executeQuery("SELECT * FROM teams");
+            ResultSet result = databaseUtil.executeQuery("SELECT * FROM clubs");
             while (result.next()) {
                 Club club = new Club();
-                club.setId(result.getInt(1));
                 club.setCoach(result.getString(2));
                 club.setLocation(result.getString(3));
                 club.setLeague(League.valueOf(result.getString(4)));
@@ -52,7 +52,7 @@ public class ClubLogic implements TeamInterface {
         ResultSet resultSet =
                 databaseUtil.executeQuery("SELECT * FROM teams WHERE name='" + name + "'");
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             Club club = new Club();
             club.setName(resultSet.getString("name"));
             club.setLeague(League.valueOf(resultSet.getString("league")));
@@ -60,9 +60,5 @@ public class ClubLogic implements TeamInterface {
             clubList.add(club);
         }
         return clubList;
-    }
-
-    public void deleteTeam(Club club) {
-        databaseUtil.executeUpdate("DELETE FROM teams WHERE id=" + club.getId());
     }
 }

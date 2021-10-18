@@ -21,6 +21,7 @@ appComponents.htmlForm.render(
         submitButton: {
             type: 'submit',
             value: 'Login'
-        }
+        },
+        registerButton: {}
     });
 

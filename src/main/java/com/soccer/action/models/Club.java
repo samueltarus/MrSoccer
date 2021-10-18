@@ -6,15 +6,13 @@ import com.soccer.action.enums.Level;
 import java.util.Random;
 
 public class Club {
-    private int id;
     private String coach;
     private String location;
     private League league;
     private String name;
     private Level level;
 
-    public Club(int id, String coach, String location, League league, String name, Level level) {
-        this.id = id;
+    public Club(String coach, String location, League league, String name, Level level) {
         this.coach = coach;
         this.location = location;
         this.league = league;
@@ -25,13 +23,6 @@ public class Club {
     public Club() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getCoach() {
         return coach;
@@ -77,40 +68,14 @@ public class Club {
 
         String sql;
 
-        if (getId() != 0) {
-            sql = "insert into clubs(coach,location,league,name,level) values(";
 
-            sql += "'" + getCoach() + "',";
-            sql += "'" + getLocation() + "',";
-            sql += "'" + (getLeague() == null ? "NA" : getLeague().name()) + "',";
-            sql += "'" + getName() + "',";
-            sql += "'" + (getLevel() == null ? "NA" : getLevel().name()) + "')";
+        sql = "insert into clubs(coach,location,league,name,level) values(";
 
-        } else {
-            sql = "update teams set ";
-
-            String setCol = "";
-
-            if (getCoach() != null && !getCoach().trim().equals(""))
-                setCol += "coach='" + getCoach();
-
-            if (!setCol.equals("") && getLocation() != null && !getLocation().trim().equals(""))
-                setCol += ",location='" + getLocation() + "',";
-
-            if (!setCol.equals("") && getLeague() != null)
-                setCol += ",league=" + getLeague().name() + ",";
-
-            if (!setCol.equals("") && getName() != null && !getName().trim().equals(""))
-                setCol += ",name='" + getName() + "',";
-
-            if (!setCol.equals("") && getLevel() != null)
-                setCol += ",level='" + getLevel().name() + "',";
-
-            sql += setCol;
-
-            sql += " where id=" + getId();
-
-        }
+        sql += "'" + getCoach() + "',";
+        sql += "'" + getLocation() + "',";
+        sql += "'" + (getLeague() == null ? "NA" : getLeague().name()) + "',";
+        sql += "'" + getName() + "',";
+        sql += "'" + (getLevel() == null ? "NA" : getLevel().name()) + "')";
 
         System.out.println("Executing sql: " + sql);
 

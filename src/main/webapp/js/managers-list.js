@@ -1,4 +1,4 @@
-AppComponents.htmlTable.render.call({
+appComponents.htmlTable.render.call({
     url: "./managers",
     method: "GET",
     tableTitle: 'Managers',
@@ -21,13 +21,5 @@ AppComponents.htmlTable.render.call({
             header: "Nationality",
             dataIndex: "nationality",
             width: 20
-        }],
-    buttons: [
-        {
-            label: 'Delete',
-            value: 'delete',
-            id: 'deleteManager',
-            type: 'delete'
-        }
-    ]
+        }]
 });

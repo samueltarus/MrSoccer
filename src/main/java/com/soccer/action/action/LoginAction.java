@@ -1,8 +1,6 @@
 package com.soccer.action.action;
 
-import com.soccer.action.bean.LoginBean;
 import com.soccer.action.bean.LoginBeanI;
-import com.soccer.action.db.utils.DatabaseUtil;
 import com.soccer.action.models.User;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -15,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Random;
 
 @WebServlet(

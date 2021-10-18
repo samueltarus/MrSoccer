@@ -28,9 +28,9 @@ let appComponents = {
             let me = this;
             let tableToRender = '<h2>' + me.tableTitle + '</h2>';
 
-            me.buttons.forEach(btn => {
-                tableToRender += '<button class="table table-dark table-hover" type="button" id="' + btn.id + '">' + btn.label + '</button>';
-            });
+            /*me.buttons.forEach(btn => {
+                tableToRender += '<button type="button" id="' + btn.id + '">' + btn.label + '</button>';
+            });*/
 
             tableToRender += '<br/><br/><table>';
 
@@ -61,14 +61,9 @@ let appComponents = {
                         let reqRes = eval('(' + ajaxReq.responseText + ')');
                         reqRes.list.forEach(row => {
                             tableToRender += '<tr><td><input type="checkbox" name="myCheck" />&nbsp;</td>';
-                            /* <td><a href="edit?id=<c:out value='${user.id}' />">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a
-                                href="delete?id=<c:out value='${user.id}' />">Delete</a></td>*/
 
                             me.columns.forEach(col => {
-                                tableToRender += '<td>' + row[col.dataIndex] + '&nbsp;<a href="delete?id="' + row[id] + '/>Delete' +
-                                    '</td>';
+                                tableToRender += '<td>' + row[col.dataIndex] + '&nbsp;</td>';
                             });
 
 
@@ -86,23 +81,7 @@ let appComponents = {
             tableToRender += '</tbody>'
             document.getElementById(me.renderTo).innerHTML = tableToRender;
 
-            //loop through the buttons again and add event listeners, modifying url, method, showMsg, success function, failure fucntion
-            me.buttons.forEach(btn => {
-                document.getElementById(btn.id).addEventListener("click", event => {
-                    event.preventDefault();
-
-                    me.url = btn.url;
-                    me.method = btn.method;
-                    me.showMsg = btn.showMsg;
-                    me.success = btn.success; // will execute if saving is success
-                    me.failure = btn.failure; //will execute if saving is failure
-
-                    AppComponents.htmlForm.submit.apply(me);
-
-                });
-            });
-
         }
-    },
+    }
 
 }

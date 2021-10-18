@@ -5,6 +5,7 @@ import com.soccer.action.enums.League;
 import com.soccer.action.enums.Level;
 import com.soccer.action.models.Club;
 
+import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,11 @@ import java.io.IOException;
         }
 )
 public class AddTeamAction extends HttpServlet {
+
+    @Inject
+    ClubLogic logic;
+    Club club;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/addteam.jsp").forward(request, response);
@@ -27,10 +33,9 @@ public class AddTeamAction extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ClubLogic logic = new ClubLogic();
 
         Club club = new Club(
-                Integer.parseInt(request.getParameter("id")),
+
                 request.getParameter("coach"),
                 request.getParameter("location"),
                 League.valueOf(request.getParameter("league")),

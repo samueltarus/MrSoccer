@@ -33,9 +33,9 @@
     <div class="container">
         <h1 class="logo"><a href="/MrSoccer/home">Welcome to MrSoccer Football Management System</a></h1>
         <ul class="nav">
-            <li><a href="/MrSoccer/clubs">Clubs</a></li>
+            <li><a href="/MrSoccer/clubs.jsp">Clubs</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
-            <li><a href="/MrSoccer/managers">Managers</a></li>
+            <li><a href="/MrSoccer/managers.jsp">Managers</a></li>
             <li><a href="/MrSoccer/login">Sign Out</a></li>
         </ul>
     </div>

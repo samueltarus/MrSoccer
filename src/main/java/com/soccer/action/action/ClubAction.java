@@ -5,6 +5,7 @@ import com.soccer.action.logic.ClubLogic;
 import com.soccer.action.models.Club;
 import com.soccer.action.utils.ResultWrapper;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,9 @@ import java.util.List;
         }
 )
 public class ClubAction extends HttpServlet {
-    ClubLogic logic = new ClubLogic();
+
+    @Inject
+    ClubLogic logic;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
