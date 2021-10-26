@@ -1,12 +1,9 @@
 package com.soccer.action.action;
 
-import com.soccer.action.enums.League;
-import com.soccer.action.enums.Level;
-import com.soccer.action.logic.ClubLogic;
-import com.soccer.action.logic.PlayerLogic;
-import com.soccer.action.models.Club;
+import com.soccer.action.interfaces.PlayerI;
 import com.soccer.action.models.Player;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +21,10 @@ import java.io.IOException;
 )
 
 public class AddPlayerAction extends HttpServlet {
+
+    @Inject
+    PlayerI playerI;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/addplayer.jsp").forward(request, response);
@@ -32,7 +33,6 @@ public class AddPlayerAction extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        PlayerLogic logic = new PlayerLogic();
         Player player = new Player(
                 Integer.parseInt(request.getParameter("id")),
                 request.getParameter("name"),
@@ -40,7 +40,7 @@ public class AddPlayerAction extends HttpServlet {
                 request.getParameter("position")
         );
 
-        logic.addPlayer(player);
+        playerI.addPlayer(player);
         response.sendRedirect("/MrSoccer/players");
     }
 }

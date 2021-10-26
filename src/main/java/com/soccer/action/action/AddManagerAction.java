@@ -5,6 +5,7 @@ import com.soccer.action.logic.PlayerLogic;
 import com.soccer.action.models.Manager;
 import com.soccer.action.models.Player;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,8 @@ import java.io.IOException;
 )
 public class AddManagerAction extends HttpServlet {
 
+    @Inject
+    ManagerLogic logic;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/addmanager.jsp").forward(request, response);
@@ -31,7 +34,6 @@ public class AddManagerAction extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ManagerLogic logic = new ManagerLogic();
         Manager manager = new Manager(
                 Integer.parseInt(request.getParameter("id")),
                 request.getParameter("name"),

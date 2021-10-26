@@ -5,8 +5,8 @@ import com.soccer.action.models.Club;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface TeamInterface {
-    void addTeam(Club club);
+public interface ClubInterface {
+    void addClub(Club club);
 
     void editTeam(Club club);
 

@@ -2,8 +2,10 @@ package com.soccer.action.models;
 
 import com.soccer.action.enums.League;
 import com.soccer.action.enums.Level;
+import com.soccer.action.events.Sms;
 
-import java.util.Random;
+import javax.enterprise.event.Event;
+import javax.inject.Inject;
 
 public class Club {
     private String coach;

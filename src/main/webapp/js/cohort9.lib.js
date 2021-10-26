@@ -1,3 +1,28 @@
+function ajaxReqCall(tableToRender, me) {
+    var ajaxReq = new XMLHttpRequest();
+    ajaxReq.onreadystatechange = function () {
+        if (ajaxReq.readyState === XMLHttpRequest.DONE) {
+            if (ajaxReq.status === 200) {
+                let reqRes = eval('(' + ajaxReq.responseText + ')');
+                reqRes.list.forEach(row => {
+                    tableToRender += '<tr><td><input type="checkbox" name="input:checked" />&nbsp;</td>';
+
+                    me.columns.forEach(col => {
+                        tableToRender += '<td>' + row[col.dataIndex] + '</td>';
+                    });
+                    tableToRender += '</tr>';
+
+                });
+
+            }
+        }
+    }
+
+    ajaxReq.open(me.method, me.url, false);
+    ajaxReq.send();
+    return tableToRender;
+}
+
 var AppComponents = {
     htmlForm:{
         render: function(){
@@ -167,27 +192,7 @@ var AppComponents = {
             tableToRender += '<tbody>';
 
             //load page from html
-            var ajaxReq = new XMLHttpRequest();
-            ajaxReq.onreadystatechange = function(){
-                if (ajaxReq.readyState === XMLHttpRequest.DONE){
-                    if (ajaxReq.status === 200){
-                        let reqRes = eval('(' + ajaxReq.responseText + ')');
-                        reqRes.list.forEach(row=>{
-                            tableToRender += '<tr><td><input type="checkbox" name="name1" />&nbsp;</td>';
-
-                            me.columns.forEach(col=>{
-                                tableToRender += '<td>' + row[col.dataIndex] + '</td>';
-                            });
-                            tableToRender += '</tr>';
-
-                        });
-
-                    }
-                }
-            }
-
-            ajaxReq.open(me.method, me.url, false);
-            ajaxReq.send();
+            tableToRender = ajaxReqCall(tableToRender, me);
 
             tableToRender += '</tbody>'
             document.getElementById(me.renderTo).innerHTML = tableToRender;

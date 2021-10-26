@@ -2,6 +2,7 @@ package com.soccer.action.action;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soccer.action.db.utils.DatabaseUtil;
+import com.soccer.action.interfaces.ManagerI;
 import com.soccer.action.logic.ManagerLogic;
 import com.soccer.action.models.Manager;
 import com.soccer.action.utils.ResultWrapper;
@@ -28,7 +29,7 @@ import java.util.List;
 public class ManagerAction extends HttpServlet {
 
     @Inject
-    ManagerLogic managerLogic;
+    ManagerI managerLogic;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,3 +1,6 @@
+
+
+
 let appComponents = {
 
     htmlForm: {
@@ -60,15 +63,21 @@ let appComponents = {
                     if (ajaxReq.status == 200) {
                         let reqRes = eval('(' + ajaxReq.responseText + ')');
                         reqRes.list.forEach(row => {
-                            tableToRender += '<tr><td><input type="checkbox" name="myCheck" />&nbsp;</td>';
+
+                            tableToRender += '<tr><td><input type="checkbox" name="dataCheck" value="id" />&nbsp;</td>';
+
+                            //tableToRender += '<tr><td><label for="dataCheck" > + row.id + </label&nbsp;</td>';
 
                             me.columns.forEach(col => {
                                 tableToRender += '<td>' + row[col.dataIndex] + '&nbsp;</td>';
+
+                                let firstRowId = row.id
+
+                                console.log(firstRowId) // prints the first id
+
                             });
 
-
                             tableToRender += '</tr>';
-
                         });
 
                     }
@@ -84,4 +93,34 @@ let appComponents = {
         }
     }
 
+}
+
+function ajaxRequestFun(ajaxReq, tableToRender, me) {
+    ajaxReq.onreadystatechange = function () {
+        if (ajaxReq.readyState == XMLHttpRequest.DONE) {
+            if (ajaxReq.status == 200) {
+                let reqRes = eval('(' + ajaxReq.responseText + ')');
+                reqRes.list.forEach(row => {
+
+                    tableToRender += '<tr><td><input type="checkbox" name="dataCheck" value="id" />&nbsp;</td>';
+
+                    //tableToRender += '<tr><td><label for="dataCheck" > + row.id + </label&nbsp;</td>';
+
+                    me.columns.forEach(col => {
+                        tableToRender += '<td>' + row[col.dataIndex] + '&nbsp;</td>';
+
+                        let allIdsAvailable = row.id
+
+                        console.log(allIdsAvailable) // prints the all available ids
+
+                    });
+
+                    tableToRender += '</tr>';
+
+                });
+
+            }
+        }
+    }
+    return tableToRender;
 }

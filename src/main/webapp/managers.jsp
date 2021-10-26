@@ -30,7 +30,7 @@
             <li><a href="/MrSoccer/addManager">Add Manager</a></li>
             <li><a href="/MrSoccer/standings">Standings</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
-            <li><a href="/MrSoccer/clubs">Clubs</a></li>
+            <li><a href="/MrSoccer/clubs.jsp">Clubs</a></li>
             <li><a href="/MrSoccer/login">Sign Out</a></li>
         </ul>
     </div>
@@ -108,7 +108,7 @@
 
 <script>
 
-    <jsp:include page="js/lib.kevin.js"/>
+    <jsp:include page="js/cohort9.lib.js"/>
     <jsp:include page="js/managers-list.js"/>
 
     function myFunction() {

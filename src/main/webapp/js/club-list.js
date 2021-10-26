@@ -3,6 +3,7 @@ appComponents.htmlTable.render.call({
     method: "GET",
     tableTitle: 'Clubs',
     renderTo: 'componentRender',
+
     columns: [
         {
             header: "Id",
@@ -21,6 +22,5 @@ appComponents.htmlTable.render.call({
             header: "Name",
             dataIndex: "name",
             width: 20
-        }],
-    buttons: []
+        }]
 });

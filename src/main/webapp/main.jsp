@@ -36,6 +36,7 @@
             <li><a href="/MrSoccer/clubs.jsp">Clubs</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
             <li><a href="/MrSoccer/managers.jsp">Managers</a></li>
+            <li><a href="/MrSoccer/results.jsp">Results</a></li>
             <li><a href="/MrSoccer/login">Sign Out</a></li>
         </ul>
     </div>

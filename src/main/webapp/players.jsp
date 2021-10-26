@@ -31,8 +31,8 @@
         <ul class="nav">
             <li><a href="/MrSoccer/addPlayer">Add Player</a></li>
             <li><a href="/MrSoccer/standings">Standings</a></li>
-            <li><a href="/MrSoccer/clubs">Clubs</a></li>
-            <li><a href="/MrSoccer/managers">Managers</a></li>
+            <li><a href="/MrSoccer/clubs.jsp">Clubs</a></li>
+            <li><a href="/MrSoccer/managers.jsp">Managers</a></li>
             <li><a href="/MrSoccer/login">Sign Out</a></li>
         </ul>
     </div>

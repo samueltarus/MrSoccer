@@ -3,21 +3,29 @@ package com.soccer.action.logic;
 import com.soccer.action.db.utils.DatabaseUtil;
 import com.soccer.action.enums.League;
 import com.soccer.action.enums.Level;
-import com.soccer.action.interfaces.TeamInterface;
+import com.soccer.action.events.Sms;
+import com.soccer.action.interfaces.ClubInterface;
 import com.soccer.action.models.Club;
 
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClubLogic implements TeamInterface {
+public class ClubLogic implements ClubInterface {
     @Inject
     DatabaseUtil databaseUtil;
 
-    public void addTeam(Club club) {
+    @Inject
+    private Event<Sms> smsEvent;
+
+    public void addClub(Club club) {
         databaseUtil.executeUpdate(club.createUpdateSql());
+
+        Sms sms = new Sms("0723901920", "An sms has been send to " + club.getName());
+        smsEvent.fire(sms);
     }
 
     public void editTeam(Club club) {

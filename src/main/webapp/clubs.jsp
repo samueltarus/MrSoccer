@@ -31,7 +31,7 @@
             <li><a href="/MrSoccer/addTeam">Add Club</a></li>
             <li><a href="/MrSoccer/standings">Standings</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
-            <li><a href="/MrSoccer/managers">Managers</a></li>
+            <li><a href="/MrSoccer/managers.jsp">Managers</a></li>
             <li><a href="/MrSoccer/login">Sign Out</a></li>
         </ul>
     </div>
