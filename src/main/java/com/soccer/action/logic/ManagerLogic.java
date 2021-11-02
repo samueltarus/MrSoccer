@@ -1,14 +1,11 @@
 package com.soccer.action.logic;
 
-import com.soccer.action.db.utils.DatabaseUtil;
-import com.soccer.action.db.utils.DbUtil;
+import com.soccer.action.dao.DatabaseUtil;
+import com.soccer.action.dao.DbUtil;
 import com.soccer.action.interfaces.ManagerI;
-import com.soccer.action.models.Club;
 import com.soccer.action.models.Manager;
-import com.soccer.action.models.Player;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

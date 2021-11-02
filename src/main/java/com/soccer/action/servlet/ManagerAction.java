@@ -1,8 +1,8 @@
-package com.soccer.action.action;
+package com.soccer.action.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soccer.action.logic.ClubLogic;
-import com.soccer.action.models.Club;
+import com.soccer.action.interfaces.ManagerI;
+import com.soccer.action.models.Manager;
 import com.soccer.action.utils.ResultWrapper;
 
 import javax.inject.Inject;
@@ -16,32 +16,34 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(
-        name = "ClubAction",
-        urlPatterns = "/clubs",
+        name = "ManagerAction",
+        urlPatterns = "/managers",
         initParams = {
                 @WebInitParam(name = "Page Name", value = "MrSoccer")
         }
 )
-public class ClubAction extends HttpServlet {
+
+public class ManagerAction extends HttpServlet {
 
     @Inject
-    ClubLogic logic;
+    ManagerI managerLogic;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try {
-            List<Club> clubs = logic.listTeam();
-            request.setAttribute("clubs", clubs);
+            List<Manager> managers = managerLogic.listManagers();
+            request.setAttribute("managers", managers);
 
             ObjectMapper mapper = new ObjectMapper();
 
             ResultWrapper clubWrapper = new ResultWrapper();
-            clubWrapper.setList(clubs);
+            clubWrapper.setList(managers);
 
             response.setContentType("application/json");
             response.getWriter().write(mapper.writeValueAsString(clubWrapper));
 
-            //request.getRequestDispatcher("./clubs.jsp").forward(request, response);
+            //request.getRequestDispatcher("/managers.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }

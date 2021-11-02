@@ -1,4 +1,4 @@
-package com.soccer.action.db.utils;
+package com.soccer.action.dao;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;

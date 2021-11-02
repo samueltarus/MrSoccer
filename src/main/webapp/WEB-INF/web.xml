@@ -21,22 +21,22 @@
 
     <!--    <servlet>-->
 <!--        <servlet-name>Home</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.action.HomeAction</servlet-class>-->
+<!--        <servlet-class>com.soccer.action.servlet.HomeAction</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet>-->
 <!--        <servlet-name>Player</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.action.PlayerAction</servlet-class>-->
+<!--        <servlet-class>com.soccer.action.servlet.PlayerAction</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet>-->
 <!--        <servlet-name>AddTeamAction</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.action.AddClubAction</servlet-class>-->
+<!--        <servlet-class>com.soccer.action.servlet.AddClubAction</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet>-->
 <!--        <servlet-name>Login</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.action.LoginAction</servlet-class>-->
+<!--        <servlet-class>com.soccer.action.servlet.LoginAction</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet-mapping>-->
@@ -61,7 +61,7 @@
 
     <!-- Listeners -->
     <listener>
-        <listener-class>com.soccer.action.db.utils.AppBootListener</listener-class>
+        <listener-class>com.soccer.action.dao.AppBootListener</listener-class>
     </listener>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>

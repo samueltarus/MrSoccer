@@ -1,8 +1,6 @@
-package com.soccer.action.action;
+package com.soccer.action.servlet;
 
-import com.soccer.action.logic.ManagerLogic;
-import com.soccer.action.logic.PlayerLogic;
-import com.soccer.action.models.Manager;
+import com.soccer.action.interfaces.PlayerI;
 import com.soccer.action.models.Player;
 
 import javax.inject.Inject;
@@ -14,34 +12,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
 @WebServlet(
-        name = "AddManagerAction",
-        urlPatterns = "/addManager",
+        name = "AddPlayerAction",
+        urlPatterns = "/addPlayer",
         initParams = {
                 @WebInitParam(name = "Page Name", value = "MrSoccer")
         }
 )
-public class AddManagerAction extends HttpServlet {
+
+public class AddPlayerAction extends HttpServlet {
 
     @Inject
-    ManagerLogic logic;
+    PlayerI playerI;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/addmanager.jsp").forward(request, response);
+        request.getRequestDispatcher("/addplayer.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Manager manager = new Manager(
+        Player player = new Player(
                 Integer.parseInt(request.getParameter("id")),
                 request.getParameter("name"),
-                request.getParameter("club"),
-                request.getParameter("nationality")
+                request.getParameter("country"),
+                request.getParameter("position")
         );
 
-        logic.addManager(manager);
-        response.sendRedirect("/MrSoccer/managers");
+        playerI.addPlayer(player);
+        response.sendRedirect("/MrSoccer/players");
     }
 }

@@ -1,10 +1,7 @@
-package com.soccer.action.action;
+package com.soccer.action.servlet;
 
-import com.soccer.action.logic.ClubLogic;
 import com.soccer.action.models.Club;
-import com.soccer.action.models.User;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -26,11 +23,11 @@ public class HomeAction extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ClubLogic logic = new ClubLogic();
+        //ClubLogic logic = new ClubLogic();
 
         try {
-            List<Club> clubs = logic.listTeam();
-            request.setAttribute("clubs", clubs);
+           // List<Club> clubs = logic.listTeam();
+           // request.setAttribute("clubs", clubs);
             request.getRequestDispatcher("./main.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

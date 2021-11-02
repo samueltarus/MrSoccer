@@ -1,10 +1,7 @@
 package com.soccer.action.logic;
 
-import com.soccer.action.db.utils.DatabaseUtil;
-import com.soccer.action.enums.League;
-import com.soccer.action.enums.Level;
+import com.soccer.action.dao.DatabaseUtil;
 import com.soccer.action.interfaces.StandingsI;
-import com.soccer.action.models.Club;
 import com.soccer.action.models.Standings;
 
 import javax.inject.Inject;

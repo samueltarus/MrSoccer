@@ -1,4 +1,4 @@
-package com.soccer.action.action;
+package com.soccer.action.servlet;
 
 import com.soccer.action.logic.StandingsLogic;
 import com.soccer.action.models.Standings;

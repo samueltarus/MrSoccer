@@ -1,9 +1,24 @@
 package com.soccer.action.models;
 
-public class Manager {
+import javax.persistence.*;
+import java.io.Serializable;
+
+
+@Entity
+@Table(name = "managers")
+public class Manager implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "club")
     private String club;
+
+    @Column(name = "nationality")
     private String nationality;
 
     public Manager(int id, String name, String club, String nationality) {

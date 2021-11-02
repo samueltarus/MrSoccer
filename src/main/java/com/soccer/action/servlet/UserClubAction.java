@@ -1,6 +1,5 @@
-package com.soccer.action.action;
+package com.soccer.action.servlet;
 
-import com.soccer.action.logic.ClubLogic;
 import com.soccer.action.models.Club;
 
 import javax.servlet.ServletException;
@@ -20,13 +19,13 @@ import java.util.List;
         }
 )
 public class UserClubAction extends HttpServlet {
-    ClubLogic logic = new ClubLogic();
+    //ClubLogic logic = new ClubLogic();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<Club> clubs = logic.listTeam();
-            request.setAttribute("clubs", clubs);
+           // List<Club> clubs = logic.listTeam();
+           // request.setAttribute("clubs", clubs);
             request.getRequestDispatcher("/user_clubs_page.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

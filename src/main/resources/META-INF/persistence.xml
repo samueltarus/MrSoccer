@@ -2,8 +2,8 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
-    <persistence-unit name="InventoryPU" transaction-type="JTA">
-        <jta-data-source>java:jboss/datasources/CnInventory</jta-data-source>
+    <persistence-unit name="soccer" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/MrSoccer</jta-data-source>
         <properties>
 
             <!-- Database connection settings -->

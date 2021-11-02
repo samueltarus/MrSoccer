@@ -2,16 +2,31 @@ package com.soccer.action.models;
 
 import com.soccer.action.enums.League;
 import com.soccer.action.enums.Level;
-import com.soccer.action.events.Sms;
 
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
+import javax.persistence.*;
+import java.io.Serializable;
 
-public class Club {
+@Entity
+@Table(name = "clubs")
+public class Club implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(name = "coach")
     private String coach;
+
+    @Column(name = "location")
     private String location;
+
+    @Column(name = "league")
     private League league;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "level")
     private Level level;
 
     public Club(String coach, String location, League league, String name, Level level) {
@@ -25,6 +40,13 @@ public class Club {
     public Club() {
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getCoach() {
         return coach;
@@ -66,22 +88,4 @@ public class Club {
         this.level = level;
     }
 
-    public String createUpdateSql() {
-
-        String sql;
-
-
-        sql = "insert into clubs(coach,location,league,name,level) values(";
-
-        sql += "'" + getCoach() + "',";
-        sql += "'" + getLocation() + "',";
-        sql += "'" + (getLeague() == null ? "NA" : getLeague().name()) + "',";
-        sql += "'" + getName() + "',";
-        sql += "'" + (getLevel() == null ? "NA" : getLevel().name()) + "')";
-
-        System.out.println("Executing sql: " + sql);
-
-        return sql;
-
-    }
 }

@@ -1,6 +1,6 @@
 package com.soccer.action.bean;
 
-import com.soccer.action.db.utils.DatabaseUtil;
+import com.soccer.action.dao.DatabaseUtil;
 import com.soccer.action.models.User;
 
 import javax.inject.Inject;
@@ -12,7 +12,7 @@ public class LoginBean implements LoginBeanI {
     @Inject
     DatabaseUtil databaseUtil;
     @Override
-    public boolean checkUser(User user) throws Exception {
+    public boolean checkUser(User user) {
 
         try {
             String sql = "SELECT * FROM users where username='" + user.getUsername() + "' and password='" + user.getPassword() + "'";

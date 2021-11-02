@@ -1,10 +1,12 @@
-package com.soccer.action.action;
+package com.soccer.action.servlet;
 
+import com.soccer.action.ejb.ClubEjbI;
 import com.soccer.action.interfaces.ClubInterface;
 import com.soccer.action.enums.League;
 import com.soccer.action.enums.Level;
 import com.soccer.action.models.Club;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.annotation.WebInitParam;
@@ -19,29 +21,31 @@ import java.io.IOException;
                 @WebInitParam(name = "Page Name", value = "MrSoccer")
         }
 )
-public class AddClubAction extends HttpServlet {
+public class AddClubAction extends BaseServlet {
 
-    @Inject
-    ClubInterface clubInterface;
+    @EJB
+    private ClubEjbI clubEjb;
+
+    private Club club = new Club();
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/addteam.jsp").forward(request, response);
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Club club = new Club(
+        try{
+            transform(club,request.getParameterMap());
+            clubEjb.save(club);
 
-                request.getParameter("coach"),
-                request.getParameter("location"),
-                League.valueOf(request.getParameter("league")),
-                request.getParameter("name"),
-                Level.valueOf(request.getParameter("level")));
+            handleResponse(response);
 
-        clubInterface.addClub(club);
-        response.sendRedirect("/MrSoccer/clubs");
+        }catch (Exception e){
+            exceptionResponse(response,false,e.getMessage());
+        }
+
     }
 }

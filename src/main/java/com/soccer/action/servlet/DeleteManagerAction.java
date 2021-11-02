@@ -1,7 +1,6 @@
-package com.soccer.action.action;
+package com.soccer.action.servlet;
 
 import com.soccer.action.logic.ManagerLogic;
-import com.soccer.action.models.Manager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
