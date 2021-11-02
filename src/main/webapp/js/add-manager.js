@@ -6,12 +6,6 @@ appComponents.htmlForm.render(
         renderId: "addManagerForm",
         items:
             [{
-                label: "Id",
-                name: "id",
-                id: "item.id",
-                type: "text",
-                required: true
-            }, {
                 label: "Name",
                 name: "name",
                 id: "item.name",

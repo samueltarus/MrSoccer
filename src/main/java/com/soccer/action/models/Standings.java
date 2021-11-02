@@ -1,10 +1,27 @@
 package com.soccer.action.models;
 
-public class Standings {
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "standings")
+public class Standings implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "clubName")
     private String clubName;
+
+    @Column(name = "gamesPlayed")
     private int gamesPlayed;
+
+    @Column(name = "clubPosition")
     private int clubPosition;
+
+    @Column(name = "clubPoints")
     private int clubPoints;
 
     public Standings(int id, String clubName, int gamesPlayed, int clubPosition, int clubPoints) {

@@ -1,10 +1,23 @@
 package com.soccer.action.models;
 
-public class Player {
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Entity
+@Table(name = "players")
+public class Player implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "country")
     private String country;
+
+    @Column(name = "position")
     private String position;
 
     public Player(int id, String name, String country, String position) {
@@ -49,42 +62,4 @@ public class Player {
         this.position = position;
     }
 
-    public String createUpdateSql() {
-
-        String sql;
-
-        if (getId() != 0) {
-            //int id, String name, String country, Position position
-            sql = "insert into players(id,name,country,position) values(";
-
-            sql += getId() + ",";
-            sql += "'" + getName() + "',";
-            sql += "'" + getCountry() + "',";
-            sql += "'" + getPosition() + "')";
-
-        } else {
-            sql = "update players set ";
-
-            String setCol = "";
-
-            if (getName() != null && !getName().trim().equals(""))
-                setCol += "name='" + getName();
-
-            if (!setCol.equals("") && getCountry() != null && !getCountry().trim().equals(""))
-                setCol += ",country='" + getCountry() + "',";
-
-            if (!setCol.equals("") && getPosition() != null)
-                setCol += ",position=" + getPosition() + "',";
-
-            sql += setCol;
-
-            sql += " where id=" + getId();
-
-        }
-
-        System.out.println("Executing sql: " + sql);
-
-        return sql;
-
-    }
 }

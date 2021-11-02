@@ -60,9 +60,6 @@
 <!--    </servlet-mapping>-->
 
     <!-- Listeners -->
-    <listener>
-        <listener-class>com.soccer.action.dao.AppBootListener</listener-class>
-    </listener>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

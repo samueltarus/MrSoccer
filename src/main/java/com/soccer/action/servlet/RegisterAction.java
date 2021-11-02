@@ -41,11 +41,7 @@ public class RegisterAction extends HttpServlet {
 
         } else {
 
-            User user = new User(
-                    username, password
-            );
-
-            logic.registerUserSql(user);
+           // logic.registerUserSql(user);
             response.sendRedirect("./main.jsp");
         }
 

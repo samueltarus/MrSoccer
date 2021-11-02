@@ -22,7 +22,6 @@ public class ClubEjb implements ClubEjbI {
         if (club.getName() == null )
             throw new AppException("Club Name is required!");
 
-
         club = clubDao.save(club);
 
         return club;

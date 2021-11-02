@@ -7,7 +7,7 @@ public class DbUtil {
 
     private static DbUtil ds;
 
-    @Resource(lookup = "java:jboss/datasources/MrSoccer")
+   // @Resource(lookup = "java:jboss/datasources/MrSoccer")
     private DataSource dataSource;
 
     public static DbUtil getInstance(){

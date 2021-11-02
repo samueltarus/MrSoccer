@@ -2,7 +2,6 @@ package com.soccer.action.dao;
 
 import com.soccer.action.models.Club;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
