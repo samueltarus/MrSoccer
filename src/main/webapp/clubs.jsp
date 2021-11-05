@@ -28,7 +28,7 @@
         <h1 class="logo"><a href="/MrSoccer/home">MrSoccer</a></h1>
         <ul class="nav">
 
-            <li><a href="/MrSoccer/addTeam">Add Club</a></li>
+            <li><a href="/MrSoccer/addClub">Add Club</a></li>
             <li><a href="/MrSoccer/standings">Standings</a></li>
             <li><a href="/MrSoccer/players">Players</a></li>
             <li><a href="/MrSoccer/managers.jsp">Managers</a></li>

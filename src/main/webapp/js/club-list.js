@@ -11,16 +11,16 @@ appComponents.htmlTable.render.call({
             width: 15,
         },
         {
-            header: "Coach",
-            dataIndex: "coach",
+            header: "Club Name",
+            dataIndex: "club_name",
             width: 20
         }, {
-            header: "League",
-            dataIndex: "league",
+            header: "Manager Name",
+            dataIndex: "manager_name",
             width: 20
         }, {
-            header: "Name",
-            dataIndex: "name",
+            header: "Location",
+            dataIndex: "location",
             width: 20
         }]
 });

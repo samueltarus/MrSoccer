@@ -1,6 +1,3 @@
-
-
-
 let appComponents = {
 
     htmlForm: {

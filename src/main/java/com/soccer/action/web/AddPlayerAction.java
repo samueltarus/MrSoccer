@@ -1,5 +1,11 @@
 package com.soccer.action.web;
 
+import com.soccer.action.ejb.ClubEjbI;
+import com.soccer.action.ejb.PlayerEjbI;
+import com.soccer.action.models.Club;
+import com.soccer.action.models.Player;
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +19,12 @@ import java.io.IOException;
         urlPatterns = "/addPlayer"
 )
 
-public class AddPlayerAction extends HttpServlet {
+public class AddPlayerAction extends BaseServlet {
 
+    @EJB
+    private PlayerEjbI playerEjb;
+
+    private Player player = new Player();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,5 +34,11 @@ public class AddPlayerAction extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        try {
+            transform(player, request.getParameterMap());
+            playerEjb.save(player);
+        } catch (Exception e) {
+            handleResponse(response);
+        }
     }
 }

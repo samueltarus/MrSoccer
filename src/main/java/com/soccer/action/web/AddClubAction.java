@@ -11,8 +11,8 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(
-        name = "AddTeamAction",
-        urlPatterns = "/addTeam"
+        name = "AddClubAction",
+        urlPatterns = "/addClub"
 )
 public class AddClubAction extends BaseServlet {
 
@@ -23,7 +23,7 @@ public class AddClubAction extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/addteam.jsp").forward(request, response);
+        request.getRequestDispatcher("/addclub.jsp").forward(request, response);
     }
 
     @Override

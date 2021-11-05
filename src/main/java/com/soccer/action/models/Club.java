@@ -1,7 +1,5 @@
 package com.soccer.action.models;
 
-import com.soccer.action.enums.League;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -23,8 +21,7 @@ public class Club implements Serializable {
     private String location;
 
     @Column(name = "league")
-    private League league;
-
+    private String league;
 
     public int getId() {
         return id;
@@ -58,11 +55,11 @@ public class Club implements Serializable {
         this.location = location;
     }
 
-    public League getLeague() {
+    public String getLeague() {
         return league;
     }
 
-    public void setLeague(League league) {
+    public void setLeague(String league) {
         this.league = league;
     }
 }
