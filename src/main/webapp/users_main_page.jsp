@@ -50,7 +50,7 @@
                 <%
                     DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
                     LocalDateTime now = LocalDateTime.now();
-                    out.print("It's " + dateTimeFormatter.format(now) + " now!");
+                    out.print("It's " + dateTimeFormatter.format(now) + " now");
                 %>
             </h3>
             <br>

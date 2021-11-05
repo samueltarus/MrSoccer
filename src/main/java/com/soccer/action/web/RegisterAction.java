@@ -10,10 +10,7 @@ import java.io.IOException;
 
 @WebServlet(
         name = "RegisterAction",
-        urlPatterns = "/register",
-        initParams = {
-                @WebInitParam(name = "Page Name", value = "MrSoccer")
-        }
+        urlPatterns = "/register"
 )
 public class RegisterAction extends HttpServlet {
 

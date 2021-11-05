@@ -5,7 +5,6 @@ import com.soccer.action.models.Club;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,10 +12,7 @@ import java.io.IOException;
 
 @WebServlet(
         name = "ClubAction",
-        urlPatterns = "/clubs",
-        initParams = {
-                @WebInitParam(name = "Page Name", value = "MrSoccer")
-        }
+        urlPatterns = "/clubs"
 )
 public class ClubAction extends BaseServlet {
 

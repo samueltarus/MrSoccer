@@ -12,10 +12,7 @@ import java.io.IOException;
 
 @WebServlet(
         name = "AddTeamAction",
-        urlPatterns = "/addTeam",
-        initParams = {
-                @WebInitParam(name = "Page Name", value = "MrSoccer")
-        }
+        urlPatterns = "/addTeam"
 )
 public class AddClubAction extends BaseServlet {
 

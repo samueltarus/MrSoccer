@@ -11,11 +11,11 @@ AppComponents.htmlTable.render.call({
         },
         {
             header: "Name",
-            dataIndex: "name",
+            dataIndex: "manager_name",
             width: 20
         }, {
             header: "Club",
-            dataIndex: "club",
+            dataIndex: "club_name",
             width: 20
         }, {
             header: "Nationality",

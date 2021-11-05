@@ -25,16 +25,6 @@ public class Club implements Serializable {
     @Column(name = "league")
     private League league;
 
-    public Club(int id, String club_name, String manager_name, String location, League league) {
-        this.id = id;
-        this.club_name = club_name;
-        this.manager_name = manager_name;
-        this.location = location;
-        this.league = league;
-    }
-
-    public Club() {
-    }
 
     public int getId() {
         return id;

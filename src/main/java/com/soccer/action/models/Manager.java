@@ -1,8 +1,5 @@
 package com.soccer.action.models;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -12,7 +9,7 @@ public class Manager implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int manager_id;
+    private int id;
 
     @Column(name = "manager_name")
     private String manager_name;
@@ -23,22 +20,13 @@ public class Manager implements Serializable {
     @Column(name = "nationality")
     private String nationality;
 
-    public Manager() {
+
+    public int getId() {
+        return id;
     }
 
-    public Manager(int manager_id, String manager_name, String club_name, String nationality) {
-        this.manager_id = manager_id;
-        this.manager_name = manager_name;
-        this.club_name = club_name;
-        this.nationality = nationality;
-    }
-
-    public int getManager_id() {
-        return manager_id;
-    }
-
-    public void setManager_id(int manager_id) {
-        this.manager_id = manager_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getManager_name() {

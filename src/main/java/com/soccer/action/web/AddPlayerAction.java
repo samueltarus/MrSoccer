@@ -1,9 +1,5 @@
 package com.soccer.action.web;
 
-import com.soccer.action.interfaces.PlayerI;
-import com.soccer.action.models.Player;
-
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +10,7 @@ import java.io.IOException;
 
 @WebServlet(
         name = "AddPlayerAction",
-        urlPatterns = "/addPlayer",
-        initParams = {
-                @WebInitParam(name = "Page Name", value = "MrSoccer")
-        }
+        urlPatterns = "/addPlayer"
 )
 
 public class AddPlayerAction extends HttpServlet {

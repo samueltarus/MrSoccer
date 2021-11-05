@@ -57,13 +57,15 @@ public class LoginAction extends HttpServlet {
                 session.setAttribute("username", user.getUsername());
                 session.setAttribute("password", user.getPassword());
 
+                //response.sendRedirect("./main.jsp");
+
                 if (user.getUsername().equals("admin")) {
                     response.sendRedirect("./main.jsp");
                 } else {
                     response.sendRedirect("./users_main_page.jsp");
                 }
             } else {
-                response.sendRedirect("./modal-login");
+                response.sendRedirect("./main.jsp");
             }
         } catch (Exception e) {
             e.printStackTrace();

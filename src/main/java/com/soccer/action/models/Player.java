@@ -1,8 +1,5 @@
 package com.soccer.action.models;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -22,16 +19,6 @@ public class Player implements Serializable {
 
     @Column(name = "position")
     private String position;
-
-    public Player(int player_id, String player_name, String nationality, String position) {
-        this.player_id = player_id;
-        this.player_name = player_name;
-        this.nationality = nationality;
-        this.position = position;
-    }
-
-    public Player() {
-    }
 
     public int getPlayer_id() {
         return player_id;
