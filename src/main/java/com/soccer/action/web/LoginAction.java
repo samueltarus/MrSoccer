@@ -1,4 +1,4 @@
-package com.soccer.action.servlet;
+package com.soccer.action.web;
 
 import com.soccer.action.bean.LoginBeanI;
 import com.soccer.action.models.User;

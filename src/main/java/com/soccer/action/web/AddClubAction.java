@@ -1,13 +1,9 @@
-package com.soccer.action.servlet;
+package com.soccer.action.web;
 
 import com.soccer.action.ejb.ClubEjbI;
-import com.soccer.action.interfaces.ClubInterface;
-import com.soccer.action.enums.League;
-import com.soccer.action.enums.Level;
 import com.soccer.action.models.Club;
 
 import javax.ejb.EJB;
-import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +23,6 @@ public class AddClubAction extends BaseServlet {
     private ClubEjbI clubEjb;
 
     private Club club = new Club();
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

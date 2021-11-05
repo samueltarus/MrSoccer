@@ -1,6 +1,5 @@
 package com.soccer.action.dao;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 public class DbUtil {

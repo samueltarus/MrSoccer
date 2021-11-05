@@ -19,7 +19,7 @@ public class ManagerEjb implements ManagerEjbI {
         if (manager == null)
             throw new AppException("Invalid manager details!!");
 
-        if (manager.getName() == null)
+        if (manager.getManager_name() == null)
             throw new AppException("Manager Name is required!");
 
         manager = managerDao.save(manager);

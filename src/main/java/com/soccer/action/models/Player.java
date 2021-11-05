@@ -1,5 +1,8 @@
 package com.soccer.action.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,49 +12,49 @@ public class Player implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int player_id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "player_name")
+    private String player_name;
 
-    @Column(name = "country")
-    private String country;
+    @Column(name = "nationality")
+    private String nationality;
 
     @Column(name = "position")
     private String position;
 
-    public Player(int id, String name, String country, String position) {
-        this.id = id;
-        this.name = name;
-        this.country = country;
+    public Player(int player_id, String player_name, String nationality, String position) {
+        this.player_id = player_id;
+        this.player_name = player_name;
+        this.nationality = nationality;
         this.position = position;
     }
 
     public Player() {
     }
 
-    public int getId() {
-        return id;
+    public int getPlayer_id() {
+        return player_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPlayer_id(int player_id) {
+        this.player_id = player_id;
     }
 
-    public String getName() {
-        return name;
+    public String getPlayer_name() {
+        return player_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPlayer_name(String player_name) {
+        this.player_name = player_name;
     }
 
-    public String getCountry() {
-        return country;
+    public String getNationality() {
+        return nationality;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
     public String getPosition() {
@@ -61,5 +64,4 @@ public class Player implements Serializable {
     public void setPosition(String position) {
         this.position = position;
     }
-
 }

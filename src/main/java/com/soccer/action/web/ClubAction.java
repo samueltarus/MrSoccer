@@ -1,4 +1,4 @@
-package com.soccer.action.servlet;
+package com.soccer.action.web;
 
 import com.soccer.action.ejb.ClubEjbI;
 import com.soccer.action.models.Club;
@@ -23,7 +23,7 @@ public class ClubAction extends BaseServlet {
     @EJB
     private ClubEjbI clubEjb;
 
-    private Club club = new Club();
+    private final Club club = new Club();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

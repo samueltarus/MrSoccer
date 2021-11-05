@@ -1,7 +1,6 @@
 package com.soccer.action.models;
 
 import com.soccer.action.enums.League;
-import com.soccer.action.enums.Level;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,8 +13,11 @@ public class Club implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "coach")
-    private String coach;
+    @Column(name = "club_name")
+    private String club_name;
+
+    @Column(name = "manager_name")
+    private String manager_name;
 
     @Column(name = "location")
     private String location;
@@ -23,18 +25,12 @@ public class Club implements Serializable {
     @Column(name = "league")
     private League league;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "level")
-    private Level level;
-
-    public Club(String coach, String location, League league, String name, Level level) {
-        this.coach = coach;
+    public Club(int id, String club_name, String manager_name, String location, League league) {
+        this.id = id;
+        this.club_name = club_name;
+        this.manager_name = manager_name;
         this.location = location;
         this.league = league;
-        this.name = name;
-        this.level = level;
     }
 
     public Club() {
@@ -48,12 +44,20 @@ public class Club implements Serializable {
         this.id = id;
     }
 
-    public String getCoach() {
-        return coach;
+    public String getClub_name() {
+        return club_name;
     }
 
-    public void setCoach(String coach) {
-        this.coach = coach;
+    public void setClub_name(String club_name) {
+        this.club_name = club_name;
+    }
+
+    public String getManager_name() {
+        return manager_name;
+    }
+
+    public void setManager_name(String manager_name) {
+        this.manager_name = manager_name;
     }
 
     public String getLocation() {
@@ -71,21 +75,4 @@ public class Club implements Serializable {
     public void setLeague(League league) {
         this.league = league;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Level getLevel() {
-        return level;
-    }
-
-    public void setLevel(Level level) {
-        this.level = level;
-    }
-
 }

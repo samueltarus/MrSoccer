@@ -1,5 +1,8 @@
 package com.soccer.action.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,49 +12,49 @@ public class Manager implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int manager_id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "manager_name")
+    private String manager_name;
 
-    @Column(name = "club")
-    private String club;
+    @Column(name = "club_name")
+    private String club_name;
 
     @Column(name = "nationality")
     private String nationality;
 
-    public Manager(int id, String name, String club, String nationality) {
-        this.id = id;
-        this.name = name;
-        this.club = club;
-        this.nationality = nationality;
-    }
-
     public Manager() {
     }
 
-    public int getId() {
-        return id;
+    public Manager(int manager_id, String manager_name, String club_name, String nationality) {
+        this.manager_id = manager_id;
+        this.manager_name = manager_name;
+        this.club_name = club_name;
+        this.nationality = nationality;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getManager_id() {
+        return manager_id;
     }
 
-    public String getName() {
-        return name;
+    public void setManager_id(int manager_id) {
+        this.manager_id = manager_id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getManager_name() {
+        return manager_name;
     }
 
-    public String getClub() {
-        return club;
+    public void setManager_name(String manager_name) {
+        this.manager_name = manager_name;
     }
 
-    public void setClub(String club) {
-        this.club = club;
+    public String getClub_name() {
+        return club_name;
+    }
+
+    public void setClub_name(String club_name) {
+        this.club_name = club_name;
     }
 
     public String getNationality() {
@@ -61,5 +64,4 @@ public class Manager implements Serializable {
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
-
 }

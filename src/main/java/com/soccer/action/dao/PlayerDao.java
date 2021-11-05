@@ -22,7 +22,7 @@ public class PlayerDao implements PlayerDaoI{
     public ModelListWrapper<Player> list(Player filters, int start, int limit) {
         ModelListWrapper<Player> results = new ModelListWrapper<>();
 
-        String hql = "SELECT p FROM Player p WHERE p.id is not null";
+        String hql = "SELECT p FROM Player p WHERE p.player_id is not null";
         Query query = entityManager.createQuery(hql, Player.class);
 
         if (start > 0)

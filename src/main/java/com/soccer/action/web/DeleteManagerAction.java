@@ -1,6 +1,4 @@
-package com.soccer.action.servlet;
-
-import com.soccer.action.logic.ManagerLogic;
+package com.soccer.action.web;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,11 +19,6 @@ public class DeleteManagerAction extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ManagerLogic logic = new ManagerLogic();
 
-        int id = Integer.parseInt(req.getParameter("id"));
-        logic.deleteManager(id);
-
-        resp.sendRedirect("./managers.jsp");
     }
 }

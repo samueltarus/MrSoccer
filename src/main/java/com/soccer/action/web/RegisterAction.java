@@ -1,9 +1,5 @@
-package com.soccer.action.servlet;
+package com.soccer.action.web;
 
-import com.soccer.action.logic.UserLogic;
-import com.soccer.action.models.User;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -29,22 +25,6 @@ public class RegisterAction extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        UserLogic logic = new UserLogic();
-
-        String username = request.getParameter("username");
-        String password = request.getParameter("psw");
-
-        if (username.isEmpty() || password.isEmpty()) {
-            RequestDispatcher req = request.getRequestDispatcher("./register.jsp");
-            req.include(request, response);
-
-        } else {
-
-           // logic.registerUserSql(user);
-            response.sendRedirect("./main.jsp");
-        }
-
 
     }
 }

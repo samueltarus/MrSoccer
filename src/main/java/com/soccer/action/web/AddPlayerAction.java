@@ -1,4 +1,4 @@
-package com.soccer.action.servlet;
+package com.soccer.action.web;
 
 import com.soccer.action.interfaces.PlayerI;
 import com.soccer.action.models.Player;
@@ -22,8 +22,6 @@ import java.io.IOException;
 
 public class AddPlayerAction extends HttpServlet {
 
-    @Inject
-    PlayerI playerI;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,14 +31,5 @@ public class AddPlayerAction extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Player player = new Player(
-                Integer.parseInt(request.getParameter("id")),
-                request.getParameter("name"),
-                request.getParameter("country"),
-                request.getParameter("position")
-        );
-
-        playerI.addPlayer(player);
-        response.sendRedirect("/MrSoccer/players");
     }
 }

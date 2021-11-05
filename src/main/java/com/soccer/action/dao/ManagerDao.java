@@ -21,7 +21,7 @@ public class ManagerDao implements ManagerDaoI {
     public ModelListWrapper<Manager> list(Manager filter, int start, int limit) {
         ModelListWrapper<Manager> results = new ModelListWrapper<>();
 
-        String hql = "SELECT m FROM Manager m WHERE m.id is not null";
+        String hql = "SELECT m FROM Manager m WHERE m.manager_id is not null";
         Query query = entityManager.createQuery(hql, Manager.class);
 
         if (start > 0)

@@ -1,4 +1,4 @@
-package com.soccer.action.servlet;
+package com.soccer.action.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soccer.action.utils.ResultWrapper;
@@ -13,8 +13,8 @@ import java.util.Map;
 
 public class BaseServlet extends HttpServlet {
 
-    private ObjectMapper jsonMapper = new ObjectMapper();
-    private ResultWrapper resultWrapper = new ResultWrapper();
+    private final ObjectMapper jsonMapper = new ObjectMapper();
+    private final ResultWrapper resultWrapper = new ResultWrapper();
 
     public void transform(Object bean, Map<String, String[]> params) {
         try {
@@ -30,20 +30,20 @@ public class BaseServlet extends HttpServlet {
         res.getWriter().print(jsonMapper.writeValueAsString(resultWrapper));
     }
 
-    public void handleResponse(HttpServletResponse res, Object obj) throws IOException {
-        res.setContentType("application/json");
+    public void handleResponse(HttpServletResponse response, Object obj) throws IOException {
+        response.setContentType("application/json");
         if (obj instanceof Collection<?>){
             resultWrapper.setList((List<?>) obj);
-            res.getWriter().print(jsonMapper.writeValueAsString(resultWrapper));
+            response.getWriter().print(jsonMapper.writeValueAsString(resultWrapper));
         }else
-            res.getWriter().print(jsonMapper.writeValueAsString(obj));
+            response.getWriter().print(jsonMapper.writeValueAsString(obj));
     }
 
-    public void exceptionResponse(HttpServletResponse res, boolean success, String message) throws IOException {
-        res.setContentType("application/json");
+    public void exceptionResponse(HttpServletResponse response, boolean success, String message) throws IOException {
+        response.setContentType("application/json");
         resultWrapper.setSuccess(success);
         resultWrapper.setMessage(message);
-        res.getWriter().print(jsonMapper.writeValueAsString(resultWrapper));
+        response.getWriter().print(jsonMapper.writeValueAsString(resultWrapper));
     }
 
 }

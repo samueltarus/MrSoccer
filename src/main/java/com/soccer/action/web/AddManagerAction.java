@@ -1,9 +1,9 @@
-package com.soccer.action.servlet;
+package com.soccer.action.web;
 
-import com.soccer.action.logic.ManagerLogic;
+import com.soccer.action.ejb.ManagerEjbI;
 import com.soccer.action.models.Manager;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
@@ -20,26 +20,28 @@ import java.io.IOException;
                 @WebInitParam(name = "Page Name", value = "MrSoccer")
         }
 )
-public class AddManagerAction extends HttpServlet {
+public class AddManagerAction extends BaseServlet {
 
-    @Inject
-    ManagerLogic logic;
+    @EJB
+    private ManagerEjbI managerEjb;
+
+    Manager manager = new Manager();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/addmanager.jsp").forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try{
+            transform(manager,request.getParameterMap());
+            managerEjb.save(manager);
 
-        Manager manager = new Manager(
-                Integer.parseInt(request.getParameter("id")),
-                request.getParameter("name"),
-                request.getParameter("club"),
-                request.getParameter("nationality")
-        );
+            handleResponse(response);
 
-        logic.addManager(manager);
-        response.sendRedirect("/MrSoccer/managers");
+        }catch (Exception e){
+            exceptionResponse(response,false,e.getMessage());
+        }
     }
 }

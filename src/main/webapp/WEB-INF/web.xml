@@ -21,22 +21,22 @@
 
     <!--    <servlet>-->
 <!--        <servlet-name>Home</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.servlet.HomeAction</servlet-class>-->
+<!--        <servlet-class>com.soccer.action.web.HomeAction</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet>-->
 <!--        <servlet-name>Player</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.servlet.PlayerAction</servlet-class>-->
+<!--        <servlet-class>com.soccer.action.web.PlayerAction</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet>-->
 <!--        <servlet-name>AddTeamAction</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.servlet.AddClubAction</servlet-class>-->
+<!--        <servlet-class>com.soccer.action.web.AddClubAction</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet>-->
 <!--        <servlet-name>Login</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.servlet.LoginAction</servlet-class>-->
+<!--        <servlet-class>com.soccer.action.web.LoginAction</servlet-class>-->
 <!--    </servlet>-->
 
 <!--    <servlet-mapping>-->

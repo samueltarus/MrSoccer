@@ -18,7 +18,6 @@ let appComponents = {
 
             formToRender += '<input type="' + this.formComponent.submitButton.type + '" value="' + this.formComponent.submitButton.value + '"></form>';
 
-            // console.log(formToRender);
             document.getElementById(this.formComponent.renderId).innerHTML = formToRender;
 
         }

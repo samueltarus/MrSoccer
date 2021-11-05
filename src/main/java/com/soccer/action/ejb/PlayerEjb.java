@@ -17,10 +17,10 @@ public class PlayerEjb implements PlayerEjbI{
     @Override
     public Player save(Player player) throws Exception {
         if (player == null)
-            throw new AppException("Invalid club details!!");
+            throw new AppException("Invalid player details!!");
 
-        if (player.getName() == null )
-            throw new AppException("Club Name is required!");
+        if (player.getPlayer_name() == null )
+            throw new AppException("Player Name is required!");
 
         return playerDao.save(player);
     }

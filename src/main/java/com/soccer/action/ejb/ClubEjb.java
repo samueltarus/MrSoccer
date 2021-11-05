@@ -19,7 +19,7 @@ public class ClubEjb implements ClubEjbI {
         if (club == null)
             throw new AppException("Invalid club details!!");
 
-        if (club.getName() == null )
+        if (club.getClub_name() == null )
             throw new AppException("Club Name is required!");
 
         club = clubDao.save(club);

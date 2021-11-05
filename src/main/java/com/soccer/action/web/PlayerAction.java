@@ -1,7 +1,4 @@
-package com.soccer.action.servlet;
-
-import com.soccer.action.logic.PlayerLogic;
-import com.soccer.action.models.Player;
+package com.soccer.action.web;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -10,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(
         name = "PlayerAction",
@@ -23,15 +19,6 @@ public class PlayerAction extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        PlayerLogic logic = new PlayerLogic();
-        try {
-            List<Player> players = logic.listPlayer();
-            request.setAttribute("players", players);
-            request.getRequestDispatcher("/players.jsp").forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
     }
 
