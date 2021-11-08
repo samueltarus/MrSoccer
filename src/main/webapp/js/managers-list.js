@@ -39,8 +39,16 @@ AppComponents.htmlTable.render.call({
                     console.log('no checkboxes checked');
                 } else {
                     // there are some checked checkboxes so we can do a delete
-                    console.log(checked.length + ' checkboxes checked');
+                    // console.log(checked.length + ' checkboxes checked');
                     checkedarray.push(checked[i].value)
+
+                    var answer = confirm('Are you sure you want to delete this checkbox?');
+                    if (answer) {
+                        $("#checkboxid").remove();
+                    } else {
+                        alert("Pls check the checkbox.");
+                    }
+
                 }
             }
         }

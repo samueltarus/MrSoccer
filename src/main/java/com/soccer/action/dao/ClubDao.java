@@ -5,10 +5,12 @@ import com.soccer.action.models.Club;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 
-public class ClubDao implements ClubDaoI{
+public class ClubDao implements ClubDaoI {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -35,6 +37,18 @@ public class ClubDao implements ClubDaoI{
 
         results.setList(clubs);
 
+        results.setCount(this.count());
+
         return results;
     }
+
+    public int count() {
+        CriteriaQuery<Long> criteriaQuery =
+                entityManager.getCriteriaBuilder().createQuery(Long.class);
+        Root<Club> root = criteriaQuery.from(Club.class);
+        criteriaQuery.select(entityManager.getCriteriaBuilder().count(root));
+        Query query = entityManager.createQuery(criteriaQuery);
+        return ((Long) query.getSingleResult()).intValue();
+    }
+
 }

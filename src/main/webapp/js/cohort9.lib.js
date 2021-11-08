@@ -5,7 +5,7 @@ function ajaxReqCall(tableToRender, me) {
             if (ajaxReq.status === 200) {
                 let reqRes = eval('(' + ajaxReq.responseText + ')');
                 reqRes.list.forEach(row => {
-                    tableToRender += '<tr><td><input type="checkbox" name="input:checked" />&nbsp;</td>';
+                    tableToRender += '<tr><td><input type="checkbox" id="checkboxid" name="input:checked" />&nbsp;</td>';
 
                     me.columns.forEach(col => {
                         tableToRender += '<td>' + row[col.dataIndex] + '</td>';

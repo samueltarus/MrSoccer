@@ -2,6 +2,7 @@ package com.soccer.action.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "clubs")
@@ -11,17 +12,25 @@ public class Club implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "club_name")
     private String club_name;
 
-    @Column(name = "manager_name")
     private String manager_name;
 
-    @Column(name = "location")
     private String location;
 
-    @Column(name = "league")
     private String league;
+
+    private int noOfPlayers;
+
+    private BigDecimal revenue;
+
+    private int totalGamesPlayed;
+
+    private int gamesWon;
+
+    private int gamesLost;
+
+    private int gamesDrawn;
 
     public int getId() {
         return id;
@@ -61,5 +70,53 @@ public class Club implements Serializable {
 
     public void setLeague(String league) {
         this.league = league;
+    }
+
+    public int getNoOfPlayers() {
+        return noOfPlayers;
+    }
+
+    public void setNoOfPlayers(int noOfPlayers) {
+        this.noOfPlayers = noOfPlayers;
+    }
+
+    public BigDecimal getRevenue() {
+        return revenue;
+    }
+
+    public void setRevenue(BigDecimal revenue) {
+        this.revenue = revenue;
+    }
+
+    public int getTotalGamesPlayed() {
+        return totalGamesPlayed;
+    }
+
+    public void setTotalGamesPlayed(int totalGamesPlayed) {
+        this.totalGamesPlayed = totalGamesPlayed;
+    }
+
+    public int getGamesWon() {
+        return gamesWon;
+    }
+
+    public void setGamesWon(int gamesWon) {
+        this.gamesWon = gamesWon;
+    }
+
+    public int getGamesLost() {
+        return gamesLost;
+    }
+
+    public void setGamesLost(int gamesLost) {
+        this.gamesLost = gamesLost;
+    }
+
+    public int getGamesDrawn() {
+        return gamesDrawn;
+    }
+
+    public void setGamesDrawn(int gamesDrawn) {
+        this.gamesDrawn = gamesDrawn;
     }
 }

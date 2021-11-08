@@ -19,47 +19,6 @@
         <param-value>Kevin</param-value>
     </context-param>
 
-    <!--    <servlet>-->
-<!--        <servlet-name>Home</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.web.HomeAction</servlet-class>-->
-<!--    </servlet>-->
-
-<!--    <servlet>-->
-<!--        <servlet-name>Player</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.web.PlayerAction</servlet-class>-->
-<!--    </servlet>-->
-
-<!--    <servlet>-->
-<!--        <servlet-name>AddTeamAction</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.web.AddClubAction</servlet-class>-->
-<!--    </servlet>-->
-
-<!--    <servlet>-->
-<!--        <servlet-name>Login</servlet-name>-->
-<!--        <servlet-class>com.soccer.action.web.LoginAction</servlet-class>-->
-<!--    </servlet>-->
-
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>Home</servlet-name>-->
-<!--        <url-pattern>/home</url-pattern>-->
-<!--    </servlet-mapping>-->
-
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>AddTeamAction</servlet-name>-->
-<!--        <url-pattern>/addTeam</url-pattern>-->
-<!--    </servlet-mapping>-->
-
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>Login</servlet-name>-->
-<!--        <url-pattern>/login</url-pattern>-->
-<!--    </servlet-mapping>-->
-
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>Player</servlet-name>-->
-<!--        <url-pattern>/player</url-pattern>-->
-<!--    </servlet-mapping>-->
-
-    <!-- Listeners -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
