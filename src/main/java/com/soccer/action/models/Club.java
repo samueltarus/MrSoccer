@@ -16,13 +16,9 @@ public class Club implements Serializable {
 
     private String manager_name;
 
-    private String location;
-
     private String league;
 
-    private int noOfPlayers;
-
-    private BigDecimal revenue;
+    private String stadium;
 
     private int totalGamesPlayed;
 
@@ -56,14 +52,6 @@ public class Club implements Serializable {
         this.manager_name = manager_name;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     public String getLeague() {
         return league;
     }
@@ -72,20 +60,12 @@ public class Club implements Serializable {
         this.league = league;
     }
 
-    public int getNoOfPlayers() {
-        return noOfPlayers;
+    public String getStadium() {
+        return stadium;
     }
 
-    public void setNoOfPlayers(int noOfPlayers) {
-        this.noOfPlayers = noOfPlayers;
-    }
-
-    public BigDecimal getRevenue() {
-        return revenue;
-    }
-
-    public void setRevenue(BigDecimal revenue) {
-        this.revenue = revenue;
+    public void setStadium(String stadium) {
+        this.stadium = stadium;
     }
 
     public int getTotalGamesPlayed() {

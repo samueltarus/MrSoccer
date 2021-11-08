@@ -8,7 +8,7 @@ appComponents.htmlTable.render.call({
         {
             header: "Id",
             dataIndex: 'id',
-            width: 15,
+            width: 10,
         },
         {
             header: "Club Name",
@@ -18,9 +18,11 @@ appComponents.htmlTable.render.call({
             header: "Manager Name",
             dataIndex: "manager_name",
             width: 20
-        }, {
-            header: "Location",
-            dataIndex: "location",
+        },
+        {
+            header: "Stadium",
+            dataIndex: "stadium",
             width: 20
-        }]
+        }
+    ]
 });

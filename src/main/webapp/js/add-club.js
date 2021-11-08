@@ -18,19 +18,48 @@ appComponents.htmlForm.render(
                 type: "text",
                 required: true
             }, {
-                label: "Location",
-                name: "location",
-                id: "item.location",
+                label: "League",
+                name: "league",
+                id: "item.league",
                 type: "text",
                 required: true
             },
                 {
-                    label: "League",
-                    name: "league",
-                    id: "item.league",
+                    label: "Stadium",
+                    name: "stadium",
+                    id: "item.stadium",
                     type: "text",
                     required: true
+                },
+                {
+                    label: "Total Games Played",
+                    name: "totalGamesPlayed",
+                    id: "item.totalGamesPlayed",
+                    type: "int",
+                    required: true
+                },
+                {
+                    label: "Games Won",
+                    name: "gamesWon",
+                    id: "item.gamesWon",
+                    type: "int",
+                    required: true
+                },
+                {
+                    label: "Games Lost",
+                    name: "gamesLost",
+                    id: "item.gamesLost",
+                    type: "int",
+                    required: true
+                },
+                {
+                    label: "Games Drawn",
+                    name: "gamesDrawn",
+                    id: "item.gamesDrawn",
+                    type: "int",
+                    required: true
                 }
+
             ],
         submitButton: {
             type: 'submit',
